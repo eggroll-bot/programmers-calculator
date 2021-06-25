@@ -3,3 +3,17 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+@media ( prefers-color-scheme: dark ) {
+	body {
+		background: #202020;
+		color: white;
+	}
+}
+
+@media ( prefers-color-scheme: light ) {
+	body {
+		background: #DDDDDD;
+		color: black;
+	}
+}
