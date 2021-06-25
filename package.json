@@ -47,11 +47,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "build": {
-    "appId": "xyz.bmak.programmers-calculator",
-    "win": {
-      "target": "NSIS"
-    }
   }
 }
