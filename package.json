@@ -1,5 +1,6 @@
 {
   "name": "programmers-calculator",
+  "main": "electron/main.js",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -36,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "electron": "^13.1.4",
     "yarn-audit-fix": "^6.3.2"
   }
 }
