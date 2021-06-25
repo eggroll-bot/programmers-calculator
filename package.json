@@ -1,6 +1,6 @@
 {
   "name": "programmers-calculator",
-  "main": "electron/main.js",
+  "main": "public/electron.js",
   "homepage": "./",
   "version": "0.1.0",
   "private": true,
@@ -13,11 +13,22 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3"
   },
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "electron": "^13.1.4",
+    "electron-builder": "^22.11.7",
+    "electron-is-dev": "^2.0.0",
+    "wait-on": "^5.3.0",
+    "yarn-audit-fix": "^6.3.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron": "wait-on tcp:3000 && electron .",
+    "dev": "concurrently -k \"BROWSER=none yarn start\" \"yarn:electron\"",
+    "dist": "yarn build && electron-builder"
   },
   "eslintConfig": {
     "extends": [
@@ -37,8 +48,10 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "electron": "^13.1.4",
-    "yarn-audit-fix": "^6.3.2"
+  "build": {
+    "appId": "xyz.bmak.programmers-calculator",
+    "win": {
+      "target": "NSIS"
+    }
   }
 }
