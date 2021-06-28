@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, Menu, nativeTheme } = require( "electron" );
+const { app, BrowserWindow, Menu } = require( "electron" );
 const isDev = require( "electron-is-dev" );
 const path = require( "path" );
 
@@ -14,11 +14,6 @@ function createWindow () {
 	} );
 
 	Menu.setApplicationMenu( null ); // Disable menubar at top.
-
-	ipcMain.handle( "dark-mode:system", ( ) => {
-		return nativeTheme.shouldUseDarkColors;
-	} );
-
 	mainWindow.loadURL( isDev ? "http://localhost:3000" : `file://${ path.join( __dirname, "../build/index.html" ) }` );
 	mainWindow.webContents.openDevTools( );
 }
