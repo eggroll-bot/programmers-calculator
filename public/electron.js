@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require( "electron" );
+const { app, BrowserWindow, ipcMain, Menu, nativeTheme } = require( "electron" );
 const isDev = require( "electron-is-dev" );
 const path = require( "path" );
 
@@ -7,11 +7,20 @@ function createWindow () {
 		title: "Programmer's Calculator",
 		width: 1000,
 		height: 600,
-		resizable: false
+		resizable: false,
+		webPreferences: {
+			preload: path.join( __dirname, "preload.js" )
+		}
 	} );
 
-	Menu.setApplicationMenu( null );
+	Menu.setApplicationMenu( null ); // Disable menubar at top.
+
+	ipcMain.handle( "dark-mode:system", ( ) => {
+		return nativeTheme.shouldUseDarkColors;
+	} );
+
 	mainWindow.loadURL( isDev ? "http://localhost:3000" : `file://${ path.join( __dirname, "../build/index.html" ) }` );
+	mainWindow.webContents.openDevTools( );
 }
 
 app.whenReady( ).then( ( ) => {
