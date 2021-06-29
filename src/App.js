@@ -54,7 +54,7 @@ class App extends React.Component {
 		return (
 			<MuiThemeProvider theme={ this.state.darkMode ? darkTheme : lightTheme }>
 				<CssBaseline />
-				<Numpad />
+				<Numpad height="300px" width="300px" />
 			</MuiThemeProvider>
 		);
 	}
