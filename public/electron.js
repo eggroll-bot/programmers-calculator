@@ -15,7 +15,10 @@ function createWindow () {
 
 	Menu.setApplicationMenu( null ); // Disable menubar at top.
 	mainWindow.loadURL( isDev ? "http://localhost:3000" : `file://${ path.join( __dirname, "../build/index.html" ) }` );
-	mainWindow.webContents.openDevTools( );
+
+	if ( isDev ) {
+		mainWindow.webContents.openDevTools( );
+	}
 }
 
 app.whenReady( ).then( ( ) => {
