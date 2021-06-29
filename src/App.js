@@ -1,7 +1,7 @@
 import React from "react";
 import { CssBaseline } from "@material-ui/core";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import Numpad from "./components/Numpad";
+import MainScreen from "./components/MainScreen";
 
 const lightTheme = createMuiTheme( {
 	palette: {
@@ -54,7 +54,7 @@ class App extends React.Component {
 		return (
 			<MuiThemeProvider theme={ this.state.darkMode ? darkTheme : lightTheme }>
 				<CssBaseline />
-				<Numpad height="300px" width="300px" />
+				<MainScreen />
 			</MuiThemeProvider>
 		);
 	}
