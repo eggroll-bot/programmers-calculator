@@ -1,5 +1,6 @@
 import React from "react";
 import Display from "./Display";
+import SecondaryDisplay from "./SecondaryDisplay";
 import ButtonPad from "./ButtonPad";
 import { Grid } from "@material-ui/core";
 
@@ -13,6 +14,7 @@ class MainScreen extends React.Component {
 		return (
 			<>
 				<Display text={ this.state.displayText } />
+				<SecondaryDisplay primaryDisplayText={ this.state.displayText } />
 
 				<Grid container>
 					<Grid item>
