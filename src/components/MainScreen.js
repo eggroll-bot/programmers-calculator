@@ -21,7 +21,64 @@ class MainScreen extends React.Component {
 						<ButtonPad
 							fontSize="24px"
 							height="275px"
-							operations={ [ "SLL", "SRL", "SRA", "+/-", "ROL", "ROR", "NOT", "AND", "1SC", "2SC", "OR", "XOR" ] }
+							operations={ [
+								{
+									text: "SLL",
+									onClick: ( ) => { }
+								},
+								{
+									text: "SRL",
+									onClick: ( ) => { }
+								},
+								{
+									text: "SRA",
+									onClick: ( ) => { }
+								},
+								{
+									text: "+/-",
+									onClick: ( ) => { }
+								},
+								{
+									text: "ROL",
+									onClick: ( ) => { }
+								},
+								{
+									text: "ROR",
+									onClick: ( ) => { }
+								},
+								{
+									text: "NOT",
+									onClick: ( ) => { }
+								},
+								{
+									text: "AND",
+									onClick: ( ) => { }
+								},
+								{
+									text: "1SC",
+									onClick: ( ) => { }
+								},
+								{
+									text: "2SC",
+									onClick: ( ) => { }
+								},
+								{
+									text: "OR",
+									onClick: ( ) => { }
+								},
+								{
+									text: "XOR",
+									onClick: ( ) => { }
+								},
+								{
+									text: "(",
+									onClick: ( ) => { }
+								},
+								{
+									text: ")",
+									onClick: ( ) => { }
+								}
+							] }
 							width="300px"
 							xs={ 3 } />
 					</Grid>
@@ -30,7 +87,48 @@ class MainScreen extends React.Component {
 						<ButtonPad
 							fontSize="24px"
 							height="275px"
-							operations={ [ 7, 8, 9, 4, 5, 6, 1, 2, 3, 0 ] }
+							operations={ [
+								{
+									text: "7",
+									onClick: ( ) => { }
+								},
+								{
+									text: "8",
+									onClick: ( ) => { }
+								},
+								{
+									text: "9",
+									onClick: ( ) => { }
+								},
+								{
+									text: "4",
+									onClick: ( ) => { }
+								},
+								{
+									text: "5",
+									onClick: ( ) => { }
+								},
+								{
+									text: "6",
+									onClick: ( ) => { }
+								},
+								{
+									text: "1",
+									onClick: ( ) => { }
+								},
+								{
+									text: "2",
+									onClick: ( ) => { }
+								},
+								{
+									text: "3",
+									onClick: ( ) => { }
+								},
+								{
+									text: "0",
+									onClick: ( ) => { }
+								}
+							] }
 							width="250px"
 							xs={ 4 } />
 					</Grid>
@@ -39,7 +137,28 @@ class MainScreen extends React.Component {
 						<ButtonPad
 							fontSize="24px"
 							height="275px"
-							operations={ [ "/", "*", "-", "+", "=" ] }
+							operations={ [
+								{
+									text: "/",
+									onClick: ( ) => { }
+								},
+								{
+									text: "*",
+									onClick: ( ) => { }
+								},
+								{
+									text: "-",
+									onClick: ( ) => { }
+								},
+								{
+									text: "+",
+									onClick: ( ) => { }
+								},
+								{
+									text: "=",
+									onClick: ( ) => { }
+								}
+							] }
 							width="75px"
 							xs={ 12 } />
 					</Grid>

@@ -10,9 +10,9 @@ function ButtonPad( props ) {
 			{
 				props.operations.map( ( item ) =>
 					(
-						<Grid item key={ item } xs={ props.xs }>
-							<Button color="primary" disableFocusRipple={ true } style={ { fontSize: props.fontSize, height: "100%", width: "100%" } }>
-								{ item }
+						<Grid item key={ item.text } xs={ props.xs }>
+							<Button color="primary" disableFocusRipple={ true } onClick={ item.onClick } style={ { fontSize: props.fontSize, height: "100%", width: "100%" } }>
+								{ item.text }
 							</Button>
 						</Grid>
 					)
