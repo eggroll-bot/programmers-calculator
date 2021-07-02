@@ -44,7 +44,7 @@ class MainScreen extends React.Component {
 										onClick: displayOperation.appendOperation
 									},
 									{
-										text: "+/-",
+										text: "+/−",
 										onClick: ( ) => { }
 									},
 									{
@@ -57,7 +57,7 @@ class MainScreen extends React.Component {
 									},
 									{
 										text: "NOT",
-										onClick: displayOperation.appendOperation
+										onClick: ( ) => { }
 									},
 									{
 										text: "AND",
@@ -111,43 +111,43 @@ class MainScreen extends React.Component {
 									},
 									{
 										text: "7",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendNumber
 									},
 									{
 										text: "8",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendNumber
 									},
 									{
 										text: "9",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendNumber
 									},
 									{
 										text: "4",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendNumber
 									},
 									{
 										text: "5",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendNumber
 									},
 									{
 										text: "6",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendNumber
 									},
 									{
 										text: "1",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendNumber
 									},
 									{
 										text: "2",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendNumber
 									},
 									{
 										text: "3",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendNumber
 									},
 									{
 										text: "0",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendNumber
 									}
 								] }
 								width="250px"
@@ -160,20 +160,20 @@ class MainScreen extends React.Component {
 								height="275px"
 								operations={ [
 									{
-										text: "/",
-										onClick: ( ) => { }
+										text: "÷",
+										onClick: displayOperation.appendOperation
 									},
 									{
-										text: "*",
-										onClick: ( ) => { }
+										text: "×",
+										onClick: displayOperation.appendOperation
 									},
 									{
-										text: "-",
-										onClick: ( ) => { }
+										text: "−",
+										onClick: displayOperation.appendOperation
 									},
 									{
 										text: "+",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendOperation
 									},
 									{
 										text: "=",

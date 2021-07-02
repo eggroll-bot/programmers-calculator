@@ -7,13 +7,15 @@ export default {
 			return;
 		}
 
-		if ( lastToken !== ")" && isNaN( lastToken ) ) { // Last token is an operator.
+		if ( lastToken !== ")" && isNaN( lastToken ) ) { // Last token is an operator or opening parenthesis.
 			tokens.pop( );
 			tokens.push( itemText );
 			setDisplayText( tokens.join( " " ) );
-		} else { // Last token is a number or closing parenthesis.
-			setDisplayText( displayText + " " + itemText );
+
+			return;
 		}
+
+		setDisplayText( displayText + " " + itemText );
 	},
 	appendParentheses: ( itemText, displayText, setDisplayText ) => {
 		const tokens = displayText.split( " " );
@@ -43,11 +45,40 @@ export default {
 			setDisplayText( displayText + " )" );
 		}
 	},
+	appendNumber: ( itemText, displayText, setDisplayText ) => {
+		const tokens = displayText.split( " " );
+		const lastToken = tokens[ tokens.length - 1 ];
+
+		if ( lastToken === "0" ) { // Ensure there's no leading zeros.
+			tokens.pop( );
+			tokens.push( itemText );
+			setDisplayText( tokens.join( " " ) );
+
+			return;
+		}
+
+		if ( isNaN( lastToken ) ) {
+			if ( lastToken !== ")" ) {
+				setDisplayText( displayText + " " + itemText );
+			}
+
+			return;
+		}
+
+		setDisplayText( displayText + itemText );
+	},
 	clear: ( _, __, setDisplayText ) => {
 		setDisplayText( "0" );
 	},
 	backspace: ( _, displayText, setDisplayText ) => {
 		const tokens = displayText.split( " " );
+		const lastToken = tokens[ tokens.length - 1 ];
+
+		if ( !isNaN( lastToken ) && lastToken.length > 1 ) { // Backspace only one number in a number.
+			setDisplayText( lastToken.substring( 0, lastToken.length - 1 ) );
+
+			return;
+		}
 
 		if ( tokens.length === 1 ) { // Zero the display if there is only one token left.
 			setDisplayText( "0" );
@@ -61,3 +92,4 @@ export default {
 };
 
 // TO-DO: When calculating parentheses after pressing the = button, append closing parentheses for each unclosed set of parentheses when processing.
+// TO-DO: Generate syntax tree when evaluating the expression at the end. Each node in the syntax tree should have an operator, and children node(s).
