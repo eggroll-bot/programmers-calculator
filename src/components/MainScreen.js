@@ -2,8 +2,9 @@ import React from "react";
 import DisplayTextContext from "../contexts/display-text-context";
 import Display from "./Display";
 import SecondaryDisplay from "./SecondaryDisplay";
-import ButtonPad from "./ButtonPad";
 import { Grid } from "@material-ui/core";
+import ButtonPad from "./ButtonPad";
+import displayOperation from "../util/display-operation";
 
 // TO-DO: For +/-, 1SC, and 2SC, if the display contains operators, make an error show up saying that the display cannot contain operators.
 
@@ -32,15 +33,15 @@ class MainScreen extends React.Component {
 								operations={ [
 									{
 										text: "SLL",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendOperation
 									},
 									{
 										text: "SRL",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendOperation
 									},
 									{
 										text: "SRA",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendOperation
 									},
 									{
 										text: "+/-",
@@ -48,19 +49,19 @@ class MainScreen extends React.Component {
 									},
 									{
 										text: "ROL",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendOperation
 									},
 									{
 										text: "ROR",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendOperation
 									},
 									{
 										text: "NOT",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendOperation
 									},
 									{
 										text: "AND",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendOperation
 									},
 									{
 										text: "1SC",
@@ -72,19 +73,19 @@ class MainScreen extends React.Component {
 									},
 									{
 										text: "OR",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendOperation
 									},
 									{
 										text: "XOR",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendOperation
 									},
 									{
 										text: "(",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendParentheses
 									},
 									{
 										text: ")",
-										onClick: ( ) => { }
+										onClick: displayOperation.appendParentheses
 									}
 								] }
 								width="300px"
@@ -102,11 +103,11 @@ class MainScreen extends React.Component {
 									},
 									{
 										text: "C",
-										onClick: ( ) => { }
+										onClick: displayOperation.clear
 									},
 									{
 										text: "⌫",
-										onClick: ( ) => { }
+										onClick: displayOperation.backspace
 									},
 									{
 										text: "7",

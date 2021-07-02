@@ -17,7 +17,7 @@ function ButtonPad( props ) {
 											<Button color="primary"
 												disableFocusRipple={ true }
 												onClick={ ( ) => {
-													item.onClick( value );
+													item.onClick( item.text, value.displayText, value.setDisplayText );
 												} }
 												style={ { fontSize: props.fontSize, height: "100%", width: "100%" } }>
 												{ item.text }
