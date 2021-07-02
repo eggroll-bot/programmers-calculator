@@ -1,8 +1,7 @@
 import React from "react";
 import { Button, Grid } from "@material-ui/core";
+import DisplayTextContext from "../contexts/display-text-context";
 import PropTypes from "prop-types";
-
-// TO-DO: Implement keyboard keys and functions for button presses.
 
 function ButtonPad( props ) {
 	return (
@@ -11,9 +10,21 @@ function ButtonPad( props ) {
 				props.operations.map( ( item ) =>
 					(
 						<Grid item key={ item.text } xs={ props.xs }>
-							<Button color="primary" disableFocusRipple={ true } onClick={ item.onClick } style={ { fontSize: props.fontSize, height: "100%", width: "100%" } }>
-								{ item.text }
-							</Button>
+							<DisplayTextContext.Consumer>
+								{
+									value =>
+										(
+											<Button color="primary"
+												disableFocusRipple={ true }
+												onClick={ ( ) => {
+													item.onClick( value );
+												} }
+												style={ { fontSize: props.fontSize, height: "100%", width: "100%" } }>
+												{ item.text }
+											</Button>
+										)
+								}
+							</DisplayTextContext.Consumer>
 						</Grid>
 					)
 				)

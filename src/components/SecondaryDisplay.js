@@ -39,7 +39,6 @@ function SecondaryDisplay( props ) {
 
 SecondaryDisplay.propTypes = {
 	height: PropTypes.string,
-	primaryDisplayText: PropTypes.string.isRequired,
 	width: PropTypes.string
 };
 
