@@ -75,7 +75,9 @@ export default {
 		const lastToken = tokens[ tokens.length - 1 ];
 
 		if ( !isNaN( lastToken ) && lastToken.length > 1 ) { // Backspace only one number in a number.
-			setDisplayText( lastToken.substring( 0, lastToken.length - 1 ) );
+			tokens.pop( );
+			tokens.push( lastToken.substring( 0, lastToken.length - 1 ) );
+			setDisplayText( tokens.join( " " ) );
 
 			return;
 		}
