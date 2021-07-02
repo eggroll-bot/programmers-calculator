@@ -10,7 +10,7 @@ import { Grid } from "@material-ui/core";
 class MainScreen extends React.Component {
 	constructor( ) {
 		super( );
-		this.state = { displayText: "0", setDisplayText: this.setDisplayText };
+		this.state = { displayText: "0", setDisplayText: this.setDisplayText.bind( this ) };
 	}
 
 	setDisplayText( text ) {
@@ -18,7 +18,6 @@ class MainScreen extends React.Component {
 	}
 
 	render( ) {
-		// TO-DO: Set display text with onClick's return value.
 		return (
 			<DisplayTextContext.Provider value={ this.state }>
 				<Display />
