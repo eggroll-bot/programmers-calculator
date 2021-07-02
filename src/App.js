@@ -35,29 +35,24 @@ const darkTheme = createMuiTheme( {
 	}
 } );
 
-class App extends React.Component {
-	constructor( ) {
-		super( );
-		this.state = { darkMode: false };
-	}
+function App( ) {
+	const [ darkMode, setDarkMode ] = React.useState( false );
 
-	componentDidMount( ) {
+	React.useEffect( ( ) => {
 		const mql = window.matchMedia( "(prefers-color-scheme: dark)" );
-		this.setState( { darkMode: mql.matches } );
+		setDarkMode( mql.matches );
 
 		mql.addEventListener( "change", ( e ) => {
-			this.setState( { darkMode: e.matches } );
+			setDarkMode( e.matches );
 		} );
-	}
+	}, [ ] );
 
-	render( ) {
-		return (
-			<MuiThemeProvider theme={ this.state.darkMode ? darkTheme : lightTheme }>
-				<CssBaseline />
-				<MainScreen />
-			</MuiThemeProvider>
-		);
-	}
+	return (
+		<MuiThemeProvider theme={ darkMode ? darkTheme : lightTheme }>
+			<CssBaseline />
+			<MainScreen />
+		</MuiThemeProvider>
+	);
 }
 
 export default App;

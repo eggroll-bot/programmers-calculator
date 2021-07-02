@@ -10,7 +10,7 @@ function Display( props ) {
 		<Paper square elevation={ 0 } style={ { textAlign: "right", width: props.width } }>
 			<Typography style={ { fontSize: "36px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
 				<DisplayTextContext.Consumer>
-					{ ( { displayText } ) => displayText }
+					{ ( [ displayText ] ) => displayText }
 				</DisplayTextContext.Consumer>
 			</Typography>
 		</Paper>

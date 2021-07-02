@@ -11,11 +11,11 @@ function ButtonPad( props ) {
 					<Grid item key={ item.text } xs={ props.xs }>
 						<DisplayTextContext.Consumer>
 							{
-								value => (
+								( [ displayText, setDisplayText ] ) => (
 									<Button color="primary"
 										disableFocusRipple={ true }
 										onClick={ ( ) => {
-											item.onClick( item.text, value.displayText, value.setDisplayText );
+											item.onClick( item.text, displayText, setDisplayText );
 										} }
 										style={ { fontSize: props.fontSize, height: "100%", width: "100%" } }>
 										{ item.text }
