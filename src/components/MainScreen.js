@@ -27,30 +27,15 @@ class MainScreen extends React.Component {
 				<div style={ { padding: 15 } }>
 					<Grid container justify="center" spacing={ 3 }>
 						<Grid item>
-							<ButtonPad
-								fontSize="24px"
-								height="275px"
-								operations={ advancedOperationPad }
-								width="300px"
-								xs={ 3 } />
+							<ButtonPad fontSize="24px" height="275px" operations={ advancedOperationPad } width="300px" xs={ 3 } />
 						</Grid>
 
 						<Grid item>
-							<ButtonPad
-								fontSize="24px"
-								height="275px"
-								operations={ numpad }
-								width="250px"
-								xs={ 4 } />
+							<ButtonPad fontSize="24px" height="275px" operations={ numpad } width="250px" xs={ 4 } />
 						</Grid>
 
 						<Grid item>
-							<ButtonPad
-								fontSize="24px"
-								height="275px"
-								operations={ basicOperationPad }
-								width="75px"
-								xs={ 12 } />
+							<ButtonPad fontSize="24px" height="275px" operations={ basicOperationPad } width="75px" xs={ 12 } />
 						</Grid>
 					</Grid>
 				</div>

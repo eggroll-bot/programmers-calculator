@@ -25,11 +25,9 @@ function SecondaryDisplay( props ) {
 					<MenuItem value={ 0 }>None:</MenuItem>
 
 					{
-						Array.from( { length: 36 }, ( _, i ) => i + 1 ).map( ( item ) =>
-							(
-								<MenuItem key={ item } value={ item }>Base { item }:</MenuItem>
-							)
-						)
+						Array.from( { length: 36 }, ( _, i ) => i + 1 ).map( ( item ) => (
+							<MenuItem key={ item } value={ item }>Base { item }:</MenuItem>
+						) )
 					}
 				</Select>
 			</div>

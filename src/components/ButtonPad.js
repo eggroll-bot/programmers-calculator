@@ -7,27 +7,24 @@ function ButtonPad( props ) {
 	return (
 		<Grid container justify="center" style={ { height: props.height, width: props.width } }>
 			{
-				props.operations.map( ( item ) =>
-					(
-						<Grid item key={ item.text } xs={ props.xs }>
-							<DisplayTextContext.Consumer>
-								{
-									value =>
-										(
-											<Button color="primary"
-												disableFocusRipple={ true }
-												onClick={ ( ) => {
-													item.onClick( item.text, value.displayText, value.setDisplayText );
-												} }
-												style={ { fontSize: props.fontSize, height: "100%", width: "100%" } }>
-												{ item.text }
-											</Button>
-										)
-								}
-							</DisplayTextContext.Consumer>
-						</Grid>
-					)
-				)
+				props.operations.map( ( item ) => (
+					<Grid item key={ item.text } xs={ props.xs }>
+						<DisplayTextContext.Consumer>
+							{
+								value => (
+									<Button color="primary"
+										disableFocusRipple={ true }
+										onClick={ ( ) => {
+											item.onClick( item.text, value.displayText, value.setDisplayText );
+										} }
+										style={ { fontSize: props.fontSize, height: "100%", width: "100%" } }>
+										{ item.text }
+									</Button>
+								)
+							}
+						</DisplayTextContext.Consumer>
+					</Grid>
+				) )
 			}
 		</Grid>
 	);
