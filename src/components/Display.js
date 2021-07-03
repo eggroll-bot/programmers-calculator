@@ -3,8 +3,6 @@ import { Paper, Typography } from "@material-ui/core";
 import DisplayTextContext from "../contexts/display-text-context";
 import PropTypes from "prop-types";
 
-// TO-DO: Stylize horizontal scrollbar better.
-
 function Display( props ) {
 	const [ displayText ] = React.useContext( DisplayTextContext );
 	const displayParagraph = React.useRef( null );
@@ -15,7 +13,7 @@ function Display( props ) {
 
 	return (
 		<Paper square elevation={ 0 } style={ { textAlign: "right", width: props.width } }>
-			<Typography ref={ displayParagraph } style={ { fontSize: "36px", height: props.height, overflowX: "auto", padding: "5px 15px", whiteSpace: "nowrap" } }>
+			<Typography ref={ displayParagraph } style={ { fontSize: "36px", height: props.height, overflowX: "scroll", padding: "5px 15px", whiteSpace: "nowrap" } }>
 				{ displayText }
 			</Typography>
 		</Paper>
