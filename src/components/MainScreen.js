@@ -12,26 +12,28 @@ function MainScreen( ) {
 	const [ displayText, setDisplayText ] = React.useState( "0" );
 
 	return (
-		<DisplayTextContext.Provider value={ [ displayText, setDisplayText ] }>
-			<Display />
-			<SecondaryDisplay />
+		<div style={ { display: "flex", flexDirection: "column", height: "100vh" } }>
+			<DisplayTextContext.Provider value={ [ displayText, setDisplayText ] }>
+				<Display />
+				<SecondaryDisplay />
 
-			<div style={ { padding: 15 } }>
-				<Grid container justify="center" spacing={ 3 }>
-					<Grid item>
-						<ButtonPad fontSize="24px" height="275px" operations={ advancedOperationPad } width="300px" xs={ 3 } />
-					</Grid>
+				<div style={ { flex: 1, padding: "30px" } }>
+					<Grid container justify="center" spacing={ 3 } style={ { alignItems: "center", height: "100%" } }>
+						<Grid item>
+							<ButtonPad fontSize="24px" height="275px" operations={ advancedOperationPad } width="300px" xs={ 3 } />
+						</Grid>
 
-					<Grid item>
-						<ButtonPad fontSize="24px" height="275px" operations={ numpad } width="250px" xs={ 4 } />
-					</Grid>
+						<Grid item>
+							<ButtonPad fontSize="24px" height="275px" operations={ numpad } width="250px" xs={ 4 } />
+						</Grid>
 
-					<Grid item>
-						<ButtonPad fontSize="24px" height="275px" operations={ basicOperationPad } width="75px" xs={ 12 } />
+						<Grid item>
+							<ButtonPad fontSize="24px" height="275px" operations={ basicOperationPad } width="75px" xs={ 12 } />
+						</Grid>
 					</Grid>
-				</Grid>
-			</div>
-		</DisplayTextContext.Provider>
+				</div>
+			</DisplayTextContext.Provider>
+		</div>
 	);
 }
 
