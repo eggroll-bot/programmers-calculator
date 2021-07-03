@@ -2,8 +2,8 @@ import displayOperation from "./display-operation";
 
 export default [
 	{
-		text: "+/-",
-		onClick: displayOperation.negateNumber
+		text: "-",
+		onClick: displayOperation.appendUnaryOperation
 	},
 	{
 		text: "C",

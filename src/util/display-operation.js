@@ -1,9 +1,14 @@
+const unaryOperations = {
+	"-": true,
+	"NOT": true
+};
+
 export default {
 	appendOperation: ( itemText, displayText, setDisplayText ) => {
 		const tokens = displayText.split( " " );
 		const lastToken = tokens[ tokens.length - 1 ];
 
-		if ( lastToken === "(" ) { // No operations after a beginning parenthesis.
+		if ( lastToken === "(" || unaryOperations[ lastToken ] ) { // No operations after a beginning parenthesis or unary operation.
 			return;
 		}
 
@@ -16,6 +21,14 @@ export default {
 		}
 
 		setDisplayText( displayText + " " + itemText );
+	},
+	appendUnaryOperation: ( itemText, displayText, setDisplayText ) => {
+		const tokens = displayText.split( " " );
+		const lastToken = tokens[ tokens.length - 1 ];
+
+		if ( isNaN( lastToken ) && lastToken !== ")" ) { // Last token is an operator or opening parenthesis.
+			setDisplayText( displayText + " " + itemText );
+		}
 	},
 	appendParentheses: ( itemText, displayText, setDisplayText ) => {
 		const tokens = displayText.split( " " );
@@ -57,7 +70,7 @@ export default {
 			return;
 		}
 
-		if ( isNaN( lastToken ) ) {
+		if ( isNaN( lastToken ) && lastToken !== "-" ) { // Last token is an operator that isn't a negative sign.
 			if ( lastToken !== ")" ) {
 				setDisplayText( displayText + " " + itemText );
 			}
@@ -66,26 +79,6 @@ export default {
 		}
 
 		setDisplayText( displayText + itemText );
-	},
-	negateNumber: ( _, displayText, setDisplayText ) => {
-		const tokens = displayText.split( " " );
-
-		// Go backward until a number is found.
-		for ( let i = tokens.length; i >= 0; i-- ) {
-			const sign = Math.sign( tokens[ i ] );
-
-			if ( !isNaN( sign ) ) {
-				if ( sign == 1 ) {
-					tokens[ i ] = "-" + tokens[ i ];
-				} else if ( sign == -1 ) {
-					tokens[ i ] = tokens[ i ].substring( 1 );
-				}
-
-				setDisplayText( tokens.join( " " ) );
-
-				return;
-			}
-		}
 	},
 	clear: ( _, __, setDisplayText ) => {
 		setDisplayText( "0" );
