@@ -6,7 +6,7 @@ function createWindow () {
 	const mainWindow = new BrowserWindow( {
 		title: "Programmer's Calculator",
 		width: isDev ? 1050 : 750,
-		height: 550,
+		height: 600,
 		resizable: false,
 		webPreferences: {
 			preload: path.join( __dirname, "preload.js" )

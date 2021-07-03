@@ -3,21 +3,25 @@ import { MenuItem, Paper, Select, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 
 // TO-DO: Finish base selection dropdown menu.
-// TO-DO: Finish converting from primary display (decimal) to the below bases.
+// TO-DO: Finish converting from primary display (decimal) to the below bases. Secondary display should convert the last number it finds. BIN is unsigned binary with negative sign prepended if negative.
 
 function SecondaryDisplay( props ) {
 	return (
 		<Paper square elevation={ 0 } style={ { textAlign: "left", width: props.width } }>
-			<Typography style={ { fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
-				Bin:
+			<Typography style={ { fontFamily: "monospace", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+				BIN:&emsp;&emsp;&emsp;&emsp;&emsp;
 			</Typography>
 
-			<Typography style={ { fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
-				Hex:
+			<Typography style={ { fontFamily: "monospace", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+				1SC:&emsp;&emsp;&emsp;&emsp;&emsp;
 			</Typography>
 
-			<Typography style={ { fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
-				Oct:
+			<Typography style={ { fontFamily: "monospace", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+				2SC:&emsp;&emsp;&emsp;&emsp;&emsp;
+			</Typography>
+
+			<Typography style={ { fontFamily: "monospace", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+				HEX:&emsp;&emsp;&emsp;&emsp;&emsp;
 			</Typography>
 
 			<div style={ { padding: "5px 15px" } }>

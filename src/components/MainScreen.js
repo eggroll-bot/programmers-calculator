@@ -20,7 +20,7 @@ function MainScreen( ) {
 				<div style={ { flex: 1, padding: "30px" } }>
 					<Grid container justify="center" spacing={ 3 } style={ { alignItems: "center", height: "100%" } }>
 						<Grid item>
-							<ButtonPad fontSize="24px" height="275px" operations={ advancedOperationPad } width="300px" xs={ 3 } />
+							<ButtonPad fontSize="24px" height="275px" operations={ advancedOperationPad } width="300px" xs={ 4 } />
 						</Grid>
 
 						<Grid item>

@@ -1,8 +1,6 @@
 import displayOperation from "./display-operation";
 
-// TO-DO: Finish +/-, 1SC, and 2SC.
-// TO-DO: For +/-, 1SC, and 2SC, if the display contains operators, make an error show up saying that the display cannot contain operators.
-// TO-DO: Finish NOT.
+// TO-DO: Finish POW and NOT.
 
 export default [
 	{
@@ -18,16 +16,16 @@ export default [
 		onClick: displayOperation.appendOperation
 	},
 	{
-		text: "+/−",
-		onClick: ( ) => { }
-	},
-	{
 		text: "ROL",
 		onClick: displayOperation.appendOperation
 	},
 	{
 		text: "ROR",
 		onClick: displayOperation.appendOperation
+	},
+	{
+		text: "POW",
+		onClick: ( ) => { }
 	},
 	{
 		text: "NOT",
@@ -38,19 +36,7 @@ export default [
 		onClick: displayOperation.appendOperation
 	},
 	{
-		text: "1SC",
-		onClick: ( ) => { }
-	},
-	{
-		text: "2SC",
-		onClick: ( ) => { }
-	},
-	{
 		text: "OR",
-		onClick: displayOperation.appendOperation
-	},
-	{
-		text: "XOR",
 		onClick: displayOperation.appendOperation
 	},
 	{
@@ -60,5 +46,9 @@ export default [
 	{
 		text: ")",
 		onClick: displayOperation.appendParentheses
+	},
+	{
+		text: "XOR",
+		onClick: displayOperation.appendOperation
 	}
 ];

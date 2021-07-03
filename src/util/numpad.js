@@ -1,10 +1,10 @@
 import displayOperation from "./display-operation";
 
-// TO-DO: Finish POW.
+// TO-DO: Finish +/-. Make it turn the last number negative. Add handling for negative numbers to calculator.
 
 export default [
 	{
-		text: "POW",
+		text: "+/−",
 		onClick: ( ) => { }
 	},
 	{
