@@ -1,7 +1,5 @@
 import displayOperation from "./display-operation";
 
-// TO-DO: Finish POW and NOT.
-
 export default [
 	{
 		text: "SLL",
@@ -25,11 +23,11 @@ export default [
 	},
 	{
 		text: "POW",
-		onClick: ( ) => { }
+		onClick: displayOperation.appendOperation
 	},
 	{
 		text: "NOT",
-		onClick: ( ) => { }
+		onClick: displayOperation.appendUnaryOperation
 	},
 	{
 		text: "AND",
