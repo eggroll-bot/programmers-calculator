@@ -1,11 +1,9 @@
 import displayOperation from "./display-operation";
 
-// TO-DO: Finish +/-. Make it turn the last number negative. Add handling for negative numbers to calculator.
-
 export default [
 	{
-		text: "+/−",
-		onClick: ( ) => { }
+		text: "+/-",
+		onClick: displayOperation.negateNumber
 	},
 	{
 		text: "C",
