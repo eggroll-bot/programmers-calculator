@@ -7,10 +7,15 @@ import PropTypes from "prop-types";
 
 function Display( props ) {
 	const [ displayText ] = React.useContext( DisplayTextContext );
+	const displayParagraph = React.useRef( null );
+
+	React.useEffect( ( ) => {
+		displayParagraph.current.scrollLeft = displayParagraph.current.scrollWidth;
+	}, [ displayText ] );
 
 	return (
 		<Paper square elevation={ 0 } style={ { textAlign: "right", width: props.width } }>
-			<Typography style={ { fontSize: "36px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+			<Typography ref={ displayParagraph } style={ { fontSize: "36px", height: props.height, overflowX: "auto", padding: "5px 15px", whiteSpace: "nowrap" } }>
 				{ displayText }
 			</Typography>
 		</Paper>
