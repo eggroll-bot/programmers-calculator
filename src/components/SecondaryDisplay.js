@@ -1,9 +1,7 @@
 import React from "react";
 import DisplayTextContext from "../contexts/display-text-context";
-import { Grid, MenuItem, Paper, Select, Typography } from "@material-ui/core";
-import PropTypes from "prop-types";
+import { Grid, makeStyles, MenuItem, Paper, Select, Typography } from "@material-ui/core";
 
-// TO-DO: Finish custom base conversion.
 // TO-DO: Improve horizontal scrolling in secondary display.
 
 // Find the last number in text separated by spaces.
@@ -27,9 +25,17 @@ function stylizeNumberString( numberString ) {
 	return numberString.substring( 0, 1 ) + ( "0".repeat( 4 - ( ( numberString.length - 1 ) % 4 ) ) + numberString.substring( 1 ) ).match( /.{1,4}/g ).join( " " ).toUpperCase( );
 }
 
-// TO-DO: Add style for typography below.
+const useStyles = makeStyles( {
+	secondaryDisplayText: {
+		fontFamily: "Roboto Mono",
+		fontSize: "16px",
+		overflowX: "auto",
+		padding: "5px 15px",
+		whiteSpace: "pre"
+	}
+} );
 
-function SecondaryDisplay( props ) {
+function SecondaryDisplay( ) {
 	const [ displayText ] = React.useContext( DisplayTextContext );
 	const [ bin, setBin ] = React.useState( );
 	const [ onesComplement, setOnesComplement ] = React.useState( );
@@ -131,27 +137,29 @@ function SecondaryDisplay( props ) {
 		setCustomBaseConverted( stylizedNumberString );
 	}, [ customBase, displayText ] );
 
+	const classes = useStyles( );
+
 	return (
-		<Paper square elevation={ 0 } style={ { textAlign: "left", width: props.width } }>
+		<Paper square elevation={ 0 } style={ { textAlign: "left" } }>
 			<Grid container>
 				<Grid item>
-					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+					<Typography className={ classes.secondaryDisplayText }>
 						BIN:
 					</Typography>
 
-					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+					<Typography className={ classes.secondaryDisplayText }>
 						1SC:
 					</Typography>
 
-					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+					<Typography className={ classes.secondaryDisplayText }>
 						2SC:
 					</Typography>
 
-					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+					<Typography className={ classes.secondaryDisplayText }>
 						HEX:
 					</Typography>
 
-					<Select onChange={ ( e ) => setCustomBase( e.target.value ) } style={ { fontFamily: "Roboto Mono", margin: "0px 15px 5px", minWidth: "70px" } } value={ customBase }>
+					<Select onChange={ ( e ) => setCustomBase( e.target.value ) } style={ { fontFamily: "Roboto Mono", margin: "0px 15px 5px", minWidth: "75px" } } value={ customBase }>
 						<MenuItem style={ { fontFamily: "Roboto Mono" } } value={ 0 }>NONE:</MenuItem>
 
 						{
@@ -163,23 +171,23 @@ function SecondaryDisplay( props ) {
 				</Grid>
 
 				<Grid item>
-					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px", whiteSpace: "pre" } }>
+					<Typography className={ classes.secondaryDisplayText }>
 						{ bin }
 					</Typography>
 
-					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px", whiteSpace: "pre" } }>
+					<Typography className={ classes.secondaryDisplayText }>
 						{ onesComplement }
 					</Typography>
 
-					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px", whiteSpace: "pre" } }>
+					<Typography className={ classes.secondaryDisplayText }>
 						{ twosComplement }
 					</Typography>
 
-					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px", whiteSpace: "pre" } }>
+					<Typography className={ classes.secondaryDisplayText }>
 						{ hex }
 					</Typography>
 
-					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px", whiteSpace: "pre" } }>
+					<Typography className={ classes.secondaryDisplayText }>
 						{ customBaseConverted }
 					</Typography>
 				</Grid>
@@ -187,10 +195,5 @@ function SecondaryDisplay( props ) {
 		</Paper>
 	);
 }
-
-SecondaryDisplay.propTypes = {
-	height: PropTypes.string,
-	width: PropTypes.string
-};
 
 export default SecondaryDisplay;
