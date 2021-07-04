@@ -80,6 +80,26 @@ export default {
 
 		setDisplayText( displayText + itemText );
 	},
+	negate: ( _, displayText, setDisplayText ) => {
+		const tokens = displayText.split( " " );
+
+		// Go backward until a number is found.
+		for ( let i = tokens.length; i >= 0; i-- ) {
+			const sign = Math.sign( tokens[ i ] );
+
+			if ( !isNaN( sign ) ) {
+				if ( sign == 1 ) {
+					tokens[ i ] = "-" + tokens[ i ];
+				} else if ( sign == -1 ) {
+					tokens[ i ] = tokens[ i ].substring( 1 );
+				}
+
+				setDisplayText( tokens.join( " " ) );
+
+				return;
+			}
+		}
+	},
 	clear: ( _, __, setDisplayText ) => {
 		setDisplayText( "0" );
 	},

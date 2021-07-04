@@ -1,9 +1,11 @@
 import displayOperation from "./display-operation";
 
+// TO-DO: Implement Ans.
+
 export default [
 	{
-		text: "-",
-		onClick: displayOperation.appendUnaryOperation
+		text: "+/-",
+		onClick: displayOperation.negate
 	},
 	{
 		text: "C",
@@ -50,7 +52,15 @@ export default [
 		onClick: displayOperation.appendNumber
 	},
 	{
+		text: "-",
+		onClick: displayOperation.appendUnaryOperation
+	},
+	{
 		text: "0",
 		onClick: displayOperation.appendNumber
+	},
+	{
+		text: "ANS",
+		onClick: ( ) => { }
 	}
 ];
