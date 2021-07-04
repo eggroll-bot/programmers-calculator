@@ -26,6 +26,10 @@ export default {
 		const tokens = displayText.split( " " );
 		const lastToken = tokens[ tokens.length - 1 ];
 
+		if ( displayText === "0" ) { // Blank display.
+			setDisplayText( itemText );
+		}
+
 		if ( isNaN( lastToken ) && lastToken !== ")" ) { // Last token is an operator or opening parenthesis.
 			setDisplayText( displayText + " " + itemText );
 		}
@@ -44,10 +48,8 @@ export default {
 			return { openingParenthesesCount: openingParenthesesCount, closingParenthesesCount: closingParenthesesCount };
 		}, { openingParenthesesCount: 0, closingParenthesesCount: 0 } );
 
-		if ( displayText === "0" ) { // Blank display.
-			if ( itemText === "(" ) {
-				setDisplayText( "(" );
-			}
+		if ( displayText === "0" && itemText === "(" ) { // Can add opening parenthesis to blank display.
+			setDisplayText( "(" );
 
 			return;
 		}
