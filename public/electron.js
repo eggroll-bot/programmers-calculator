@@ -5,8 +5,8 @@ const path = require( "path" );
 function createWindow( ) {
 	const mainWindow = new BrowserWindow( {
 		title: "Programmer's Calculator",
-		width: isDev ? 1050 : 750,
-		height: 600,
+		width: isDev ? 1100 : 800,
+		height: 650,
 		resizable: false,
 		webPreferences: {
 			preload: path.join( __dirname, "preload.js" )
