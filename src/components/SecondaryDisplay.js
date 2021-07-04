@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 
 // TO-DO: Finish base selection dropdown menu.
 // TO-DO: Finish converting from primary display (decimal) to the below bases. Secondary display should convert the last number it finds. BIN is unsigned binary with negative sign prepended if negative.
+// TO-DO: Improve scrolling in secondary display.
 
 function findLastNumberInText( text ) {
 	const tokens = text.split( " " );
@@ -36,7 +37,29 @@ function SecondaryDisplay( props ) {
 
 	// Update 1SC.
 	React.useEffect( ( ) => {
-		setOnesComplement( " 0000" );
+		const lastNumber = findLastNumberInText( displayText );
+		const lastNumberAbs = lastNumber >= 0 ? lastNumber : BigInt( lastNumber.toString( ).substring( 1 ) );
+		const stylizedBinString = stylizeNumberString( " " + lastNumberAbs.toString( 2 ) );
+
+		if ( lastNumber >= 0 ) {
+			setOnesComplement( stylizedBinString );
+
+			return;
+		}
+
+		const stylizedOnesComplementStringArray = [ ];
+
+		stylizedBinString.split( "" ).forEach( char => {
+			if ( char === "0" ) {
+				stylizedOnesComplementStringArray.push( "1" );
+			} else if ( char === "1" ) {
+				stylizedOnesComplementStringArray.push( "0" );
+			} else {
+				stylizedOnesComplementStringArray.push( char );
+			}
+		} );
+
+		setOnesComplement( stylizedOnesComplementStringArray.join( "" ) );
 	}, [ displayText ] );
 
 	// Update 2SC.
