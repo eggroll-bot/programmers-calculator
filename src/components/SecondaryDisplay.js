@@ -4,8 +4,7 @@ import { MenuItem, Paper, Select, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 
 // TO-DO: Finish base selection dropdown menu.
-// TO-DO: Finish converting from primary display (decimal) to the below bases. Secondary display should convert the last number it finds. BIN is unsigned binary with negative sign prepended if negative.
-// TO-DO: Improve scrolling in secondary display.
+// TO-DO: Improve horizontal scrolling in secondary display.
 
 function findLastNumberInText( text ) {
 	const tokens = text.split( " " );
@@ -64,7 +63,39 @@ function SecondaryDisplay( props ) {
 
 	// Update 2SC.
 	React.useEffect( ( ) => {
-		setTwosComplement( " 0000" );
+		const lastNumber = findLastNumberInText( displayText );
+		const lastNumberAbs = lastNumber >= 0 ? lastNumber : BigInt( lastNumber.toString( ).substring( 1 ) );
+
+		if ( lastNumber >= 0 ) {
+			const stylizedBinString = stylizeNumberString( " " + lastNumberAbs.toString( 2 ) );
+			setTwosComplement( stylizedBinString );
+
+			return;
+		}
+
+		const lastNumberAbsMinusOne = lastNumberAbs - 1n;
+		let stylizedBinString = "";
+
+		// Add extra 0 if lastNumberAbs is a power of 2 to account for loss of digit. This is done to align the 2SC representation with other binary representations.
+		if ( ( lastNumberAbs & ( lastNumberAbs - 1n ) ) === 0n ) { // lastNumberAbs is a power of 2.
+			stylizedBinString = stylizeNumberString( " 0" + lastNumberAbsMinusOne.toString( 2 ) );
+		} else {
+			stylizedBinString = stylizeNumberString( " " + lastNumberAbsMinusOne.toString( 2 ) );
+		}
+
+		const stylizedTwosComplementStringArray = [ ];
+
+		stylizedBinString.split( "" ).forEach( char => {
+			if ( char === "0" ) {
+				stylizedTwosComplementStringArray.push( "1" );
+			} else if ( char === "1" ) {
+				stylizedTwosComplementStringArray.push( "0" );
+			} else {
+				stylizedTwosComplementStringArray.push( char );
+			}
+		} );
+
+		setTwosComplement( stylizedTwosComplementStringArray.join( "" ) );
 	}, [ displayText ] );
 
 	// Update HEX.
