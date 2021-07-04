@@ -1,3 +1,6 @@
+import "@fontsource/roboto";
+import "@fontsource/roboto-mono";
+
 import React from "react";
 import { CssBaseline } from "@material-ui/core";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";

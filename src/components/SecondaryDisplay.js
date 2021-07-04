@@ -8,19 +8,19 @@ import PropTypes from "prop-types";
 function SecondaryDisplay( props ) {
 	return (
 		<Paper square elevation={ 0 } style={ { textAlign: "left", width: props.width } }>
-			<Typography style={ { fontFamily: "monospace", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+			<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
 				BIN:&emsp;&emsp;&emsp;&emsp;&emsp;
 			</Typography>
 
-			<Typography style={ { fontFamily: "monospace", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+			<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
 				1SC:&emsp;&emsp;&emsp;&emsp;&emsp;
 			</Typography>
 
-			<Typography style={ { fontFamily: "monospace", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+			<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
 				2SC:&emsp;&emsp;&emsp;&emsp;&emsp;
 			</Typography>
 
-			<Typography style={ { fontFamily: "monospace", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+			<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
 				HEX:&emsp;&emsp;&emsp;&emsp;&emsp;
 			</Typography>
 
