@@ -1,6 +1,6 @@
 import React from "react";
-import { Button, Grid } from "@material-ui/core";
 import DisplayTextContext from "../contexts/display-text-context";
+import { Button, Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
 
 function ButtonPad( props ) {

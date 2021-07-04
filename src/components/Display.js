@@ -1,13 +1,13 @@
 import React from "react";
-import { Paper, Typography } from "@material-ui/core";
 import DisplayTextContext from "../contexts/display-text-context";
+import { Paper, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 
 function Display( props ) {
 	const [ displayText ] = React.useContext( DisplayTextContext );
 	const displayParagraph = React.useRef( null );
 
-	React.useEffect( ( ) => {
+	React.useLayoutEffect( ( ) => {
 		displayParagraph.current.scrollLeft = displayParagraph.current.scrollWidth;
 	}, [ displayText ] );
 
