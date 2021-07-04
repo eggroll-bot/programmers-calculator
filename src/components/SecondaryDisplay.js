@@ -3,7 +3,7 @@ import DisplayTextContext from "../contexts/display-text-context";
 import { MenuItem, Paper, Select, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 
-// TO-DO: Finish base selection dropdown menu and conversion for that.
+// TO-DO: Finish custom base conversion.
 // TO-DO: Improve horizontal scrolling in secondary display.
 
 // Find the last number in text separated by spaces.
@@ -29,10 +29,11 @@ function stylizeNumberString( numberString ) {
 
 function SecondaryDisplay( props ) {
 	const [ displayText ] = React.useContext( DisplayTextContext );
-	const [ bin, setBin ] = React.useState( " 0000" );
-	const [ onesComplement, setOnesComplement ] = React.useState( " 0000" );
-	const [ twosComplement, setTwosComplement ] = React.useState( " 0000" );
-	const [ hex, setHex ] = React.useState( " 0000" );
+	const [ bin, setBin ] = React.useState( );
+	const [ onesComplement, setOnesComplement ] = React.useState( );
+	const [ twosComplement, setTwosComplement ] = React.useState( );
+	const [ hex, setHex ] = React.useState( );
+	const [ customBase, setCustomBase ] = React.useState( 0 );
 
 	// Update BIN.
 	React.useEffect( ( ) => {
@@ -133,7 +134,7 @@ function SecondaryDisplay( props ) {
 			</Typography>
 
 			<div style={ { padding: "5px 15px" } }>
-				<Select value={ 0 }>
+				<Select onChange={ ( e ) => setCustomBase( e.target.value ) } value={ customBase }>
 					<MenuItem value={ 0 }>None:</MenuItem>
 
 					{
