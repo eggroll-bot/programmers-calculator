@@ -2,7 +2,7 @@ const { app, BrowserWindow, Menu } = require( "electron" );
 const isDev = require( "electron-is-dev" );
 const path = require( "path" );
 
-function createWindow () {
+function createWindow( ) {
 	const mainWindow = new BrowserWindow( {
 		title: "Programmer's Calculator",
 		width: isDev ? 1050 : 750,
