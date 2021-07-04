@@ -1,6 +1,6 @@
 import React from "react";
 import DisplayTextContext from "../contexts/display-text-context";
-import { MenuItem, Paper, Select, Typography } from "@material-ui/core";
+import { Grid, MenuItem, Paper, Select, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 
 // TO-DO: Finish custom base conversion.
@@ -27,6 +27,8 @@ function stylizeNumberString( numberString ) {
 	return numberString.substring( 0, 1 ) + ( "0".repeat( 4 - ( ( numberString.length - 1 ) % 4 ) ) + numberString.substring( 1 ) ).match( /.{1,4}/g ).join( " " ).toUpperCase( );
 }
 
+// TO-DO: Add style for typography below.
+
 function SecondaryDisplay( props ) {
 	const [ displayText ] = React.useContext( DisplayTextContext );
 	const [ bin, setBin ] = React.useState( );
@@ -34,6 +36,7 @@ function SecondaryDisplay( props ) {
 	const [ twosComplement, setTwosComplement ] = React.useState( );
 	const [ hex, setHex ] = React.useState( );
 	const [ customBase, setCustomBase ] = React.useState( 0 );
+	const [ customBaseConverted, setCustomBaseConverted ] = React.useState( );
 
 	// Update BIN.
 	React.useEffect( ( ) => {
@@ -115,35 +118,72 @@ function SecondaryDisplay( props ) {
 		setHex( stylizedNumberString );
 	}, [ displayText ] );
 
+	// Update custom base.
+	React.useEffect( ( ) => {
+		if ( customBase === 0 ) {
+			setCustomBaseConverted( "" );
+
+			return;
+		}
+
+		const lastNumber = findLastNumberInText( displayText );
+		const stylizedNumberString = stylizeNumberString( lastNumber >= 0 ? " " + lastNumber.toString( customBase ) : lastNumber.toString( customBase ) );
+		setCustomBaseConverted( stylizedNumberString );
+	}, [ customBase, displayText ] );
+
 	return (
 		<Paper square elevation={ 0 } style={ { textAlign: "left", width: props.width } }>
-			<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
-				BIN:&emsp;&emsp;&emsp;&emsp;{ bin }
-			</Typography>
+			<Grid container>
+				<Grid item>
+					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+						BIN:
+					</Typography>
 
-			<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
-				1SC:&emsp;&emsp;&emsp;&emsp;{ onesComplement }
-			</Typography>
+					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+						1SC:
+					</Typography>
 
-			<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
-				2SC:&emsp;&emsp;&emsp;&emsp;{ twosComplement }
-			</Typography>
+					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+						2SC:
+					</Typography>
 
-			<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
-				HEX:&emsp;&emsp;&emsp;&emsp;{ hex }
-			</Typography>
+					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px" } }>
+						HEX:
+					</Typography>
 
-			<div style={ { padding: "5px 15px" } }>
-				<Select onChange={ ( e ) => setCustomBase( e.target.value ) } value={ customBase }>
-					<MenuItem value={ 0 }>None:</MenuItem>
+					<Select onChange={ ( e ) => setCustomBase( e.target.value ) } style={ { fontFamily: "Roboto Mono", margin: "5px 15px", minWidth: "70px" } } value={ customBase }>
+						<MenuItem style={ { fontFamily: "Roboto Mono" } } value={ 0 }>NONE:</MenuItem>
 
-					{
-						Array.from( { length: 36 }, ( _, i ) => i + 1 ).map( ( item ) => (
-							<MenuItem key={ item } value={ item }>Base { item }:</MenuItem>
-						) )
-					}
-				</Select>
-			</div>
+						{
+							Array.from( { length: 35 }, ( _, i ) => i + 2 ).map( ( item ) => (
+								<MenuItem key={ item } style={ { fontFamily: "Roboto Mono" } } value={ item }>B{ ( "0" + item ).slice( -2 ) }:</MenuItem>
+							) )
+						}
+					</Select>
+				</Grid>
+
+				<Grid item>
+					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px", whiteSpace: "pre" } }>
+						{ bin }
+					</Typography>
+
+					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px", whiteSpace: "pre" } }>
+						{ onesComplement }
+					</Typography>
+
+					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px", whiteSpace: "pre" } }>
+						{ twosComplement }
+					</Typography>
+
+					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px", whiteSpace: "pre" } }>
+						{ hex }
+					</Typography>
+
+					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "10px 15px", whiteSpace: "pre" } }>
+						{ customBaseConverted }
+					</Typography>
+				</Grid>
+			</Grid>
 		</Paper>
 	);
 }
