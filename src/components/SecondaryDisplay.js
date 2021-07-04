@@ -151,7 +151,7 @@ function SecondaryDisplay( props ) {
 						HEX:
 					</Typography>
 
-					<Select onChange={ ( e ) => setCustomBase( e.target.value ) } style={ { fontFamily: "Roboto Mono", margin: "5px 15px", minWidth: "70px" } } value={ customBase }>
+					<Select onChange={ ( e ) => setCustomBase( e.target.value ) } style={ { fontFamily: "Roboto Mono", margin: "0px 15px 5px", minWidth: "70px" } } value={ customBase }>
 						<MenuItem style={ { fontFamily: "Roboto Mono" } } value={ 0 }>NONE:</MenuItem>
 
 						{
@@ -179,7 +179,7 @@ function SecondaryDisplay( props ) {
 						{ hex }
 					</Typography>
 
-					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "10px 15px", whiteSpace: "pre" } }>
+					<Typography style={ { fontFamily: "Roboto Mono", fontSize: "16px", height: props.height, overflowX: "auto", padding: "5px 15px", whiteSpace: "pre" } }>
 						{ customBaseConverted }
 					</Typography>
 				</Grid>
