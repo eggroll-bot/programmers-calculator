@@ -2,8 +2,6 @@ import React from "react";
 import DisplayTextContext from "../contexts/display-text-context";
 import { Grid, makeStyles, MenuItem, Paper, Select, Typography } from "@material-ui/core";
 
-// TO-DO: Improve horizontal scrolling in secondary display.
-
 // Find the last number in text separated by spaces.
 function findLastNumberInText( text ) {
 	const tokens = text.split( " " );
@@ -26,12 +24,20 @@ function stylizeNumberString( numberString ) {
 }
 
 const useStyles = makeStyles( {
-	secondaryDisplayText: {
+	displayText: {
 		fontFamily: "Roboto Mono",
 		fontSize: "16px",
-		overflowX: "auto",
-		padding: "5px 15px",
+		overflowX: "scroll",
+		padding: "0px 15px",
 		whiteSpace: "pre"
+	},
+	baseSelectionRoot: {
+		fontFamily: "Roboto Mono",
+		margin: "0px 15px 20px",
+		minWidth: "75px"
+	},
+	baseSelectionInput: {
+		padding: "0px 0px 5px"
 	}
 } );
 
@@ -126,7 +132,7 @@ function SecondaryDisplay( ) {
 
 	// Update custom base.
 	React.useEffect( ( ) => {
-		if ( customBase === 0 ) {
+		if ( customBase === 0 ) { // NONE is selected.
 			setCustomBaseConverted( "" );
 
 			return;
@@ -141,25 +147,25 @@ function SecondaryDisplay( ) {
 
 	return (
 		<Paper square elevation={ 0 } style={ { textAlign: "left" } }>
-			<Grid container>
+			<Grid container wrap="nowrap">
 				<Grid item>
-					<Typography className={ classes.secondaryDisplayText }>
+					<Typography className={ classes.displayText }>
 						BIN:
 					</Typography>
 
-					<Typography className={ classes.secondaryDisplayText }>
+					<Typography className={ classes.displayText }>
 						1SC:
 					</Typography>
 
-					<Typography className={ classes.secondaryDisplayText }>
+					<Typography className={ classes.displayText }>
 						2SC:
 					</Typography>
 
-					<Typography className={ classes.secondaryDisplayText }>
+					<Typography className={ classes.displayText }>
 						HEX:
 					</Typography>
 
-					<Select onChange={ ( e ) => setCustomBase( e.target.value ) } style={ { fontFamily: "Roboto Mono", margin: "0px 15px 5px", minWidth: "75px" } } value={ customBase }>
+					<Select className={ classes.baseSelectionRoot } inputProps={ { className: classes.baseSelectionInput } } onChange={ ( e ) => setCustomBase( e.target.value ) } value={ customBase }>
 						<MenuItem style={ { fontFamily: "Roboto Mono" } } value={ 0 }>NONE:</MenuItem>
 
 						{
@@ -170,24 +176,24 @@ function SecondaryDisplay( ) {
 					</Select>
 				</Grid>
 
-				<Grid item>
-					<Typography className={ classes.secondaryDisplayText }>
+				<Grid item style={ { overflowX: "scroll" } }>
+					<Typography className={ classes.displayText }>
 						{ bin }
 					</Typography>
 
-					<Typography className={ classes.secondaryDisplayText }>
+					<Typography className={ classes.displayText }>
 						{ onesComplement }
 					</Typography>
 
-					<Typography className={ classes.secondaryDisplayText }>
+					<Typography className={ classes.displayText }>
 						{ twosComplement }
 					</Typography>
 
-					<Typography className={ classes.secondaryDisplayText }>
+					<Typography className={ classes.displayText }>
 						{ hex }
 					</Typography>
 
-					<Typography className={ classes.secondaryDisplayText }>
+					<Typography className={ classes.displayText }>
 						{ customBaseConverted }
 					</Typography>
 				</Grid>
