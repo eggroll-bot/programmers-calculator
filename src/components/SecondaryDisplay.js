@@ -3,7 +3,7 @@ import DisplayTextContext from "../contexts/display-text-context";
 import { MenuItem, Paper, Select, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 
-// TO-DO: Finish base selection dropdown menu.
+// TO-DO: Finish base selection dropdown menu and conversion for that.
 // TO-DO: Improve horizontal scrolling in secondary display.
 
 // Find the last number in text separated by spaces.
