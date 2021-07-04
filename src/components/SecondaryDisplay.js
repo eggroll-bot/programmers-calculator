@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 // TO-DO: Finish base selection dropdown menu.
 // TO-DO: Improve horizontal scrolling in secondary display.
 
+// Find the last number in text separated by spaces.
 function findLastNumberInText( text ) {
 	const tokens = text.split( " " );
 
@@ -16,6 +17,10 @@ function findLastNumberInText( text ) {
 	}
 }
 
+/* Stylize a number represented as a string. Will prepend 0s to make the number of digits divisible by 4. If the number of digits is already divisible
+ * by 4, the function will add four more 0s. Then, the function will add spaces every four digits. The number represented as a string must have a sign
+ * character at the beginning.
+*/
 function stylizeNumberString( numberString ) {
 	return numberString.substring( 0, 1 ) + ( "0".repeat( 4 - ( ( numberString.length - 1 ) % 4 ) ) + numberString.substring( 1 ) ).match( /.{1,4}/g ).join( " " ).toUpperCase( );
 }
@@ -48,6 +53,7 @@ function SecondaryDisplay( props ) {
 
 		const stylizedOnesComplementStringArray = [ ];
 
+		// Invert all 0s and 1s.
 		stylizedBinString.split( "" ).forEach( char => {
 			if ( char === "0" ) {
 				stylizedOnesComplementStringArray.push( "1" );
@@ -73,7 +79,7 @@ function SecondaryDisplay( props ) {
 			return;
 		}
 
-		const lastNumberAbsMinusOne = lastNumberAbs - 1n;
+		const lastNumberAbsMinusOne = lastNumberAbs - 1n; // Subtract 1 now, instead of adding 1 at the end because it's easier to do now.
 		let stylizedBinString = "";
 
 		// Add extra 0 if lastNumberAbs is a power of 2 to account for loss of digit. This is done to align the 2SC representation with other binary representations.
@@ -85,6 +91,7 @@ function SecondaryDisplay( props ) {
 
 		const stylizedTwosComplementStringArray = [ ];
 
+		// Invert all 0s and 1s.
 		stylizedBinString.split( "" ).forEach( char => {
 			if ( char === "0" ) {
 				stylizedTwosComplementStringArray.push( "1" );

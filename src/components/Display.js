@@ -8,7 +8,7 @@ function Display( props ) {
 	const displayParagraph = React.useRef( null );
 
 	React.useLayoutEffect( ( ) => {
-		displayParagraph.current.scrollLeft = displayParagraph.current.scrollWidth;
+		displayParagraph.current.scrollLeft = displayParagraph.current.scrollWidth; // Scroll to end.
 	}, [ displayText ] );
 
 	return (
