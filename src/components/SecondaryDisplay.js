@@ -15,6 +15,8 @@ function findLastNumberInText( text ) {
 			return BigInt( tokens[ i ] );
 		}
 	}
+
+	return 0n; // No number found.
 }
 
 /* Stylize a number represented as a string. Will prepend 0s to make the number of digits divisible by 4. If the number of digits is already divisible
