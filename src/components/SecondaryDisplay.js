@@ -2,8 +2,6 @@ import React from "react";
 import DisplayTextContext from "../contexts/display-text-context";
 import { Grid, makeStyles, MenuItem, Paper, Select, Typography } from "@material-ui/core";
 
-// TO-DO: Scroll all the way to the right as displayText updates.
-
 // Find the last number in text separated by spaces.
 function findLastNumberInText( text ) {
 	const tokens = text.split( " " );
@@ -34,7 +32,7 @@ const useStyles = makeStyles( {
 	},
 	baseSelectionRoot: {
 		fontFamily: "Roboto Mono",
-		marginBottom: "20px",
+		margin: "0px 18px 20px 0px",
 		minWidth: "75px"
 	},
 	baseSelectionInput: {
@@ -50,6 +48,7 @@ function SecondaryDisplay( ) {
 	const [ hex, setHex ] = React.useState( );
 	const [ customBase, setCustomBase ] = React.useState( 0 );
 	const [ customBaseConverted, setCustomBaseConverted ] = React.useState( );
+	const scrollableElements = React.useRef( [ ] );
 
 	// Update BIN.
 	React.useEffect( ( ) => {
@@ -144,6 +143,12 @@ function SecondaryDisplay( ) {
 		setCustomBaseConverted( stylizedNumberString );
 	}, [ customBase, displayText ] );
 
+	React.useLayoutEffect( ( ) => {
+		scrollableElements.current.forEach( ( element ) => {
+			element.scrollLeft = element.scrollWidth; // Scroll to end.
+		} );
+	}, [ bin, onesComplement, twosComplement, hex, customBaseConverted ] );
+
 	const classes = useStyles( );
 
 	return (
@@ -178,23 +183,23 @@ function SecondaryDisplay( ) {
 				</Grid>
 
 				<Grid item style={ { overflowX: "scroll" } }>
-					<Typography className={ classes.displayText }>
+					<Typography className={ classes.displayText } ref={ element => { scrollableElements.current[ 0 ] = element; } }>
 						{ bin }
 					</Typography>
 
-					<Typography className={ classes.displayText }>
+					<Typography className={ classes.displayText } ref={ element => { scrollableElements.current[ 1 ] = element; } }>
 						{ onesComplement }
 					</Typography>
 
-					<Typography className={ classes.displayText }>
+					<Typography className={ classes.displayText } ref={ element => { scrollableElements.current[ 2 ] = element; } }>
 						{ twosComplement }
 					</Typography>
 
-					<Typography className={ classes.displayText }>
+					<Typography className={ classes.displayText } ref={ element => { scrollableElements.current[ 3 ] = element; } }>
 						{ hex }
 					</Typography>
 
-					<Typography className={ classes.displayText }>
+					<Typography className={ classes.displayText } ref={ element => { scrollableElements.current[ 4 ] = element; } }>
 						{ customBaseConverted }
 					</Typography>
 				</Grid>
