@@ -1,6 +1,7 @@
 import React from "react";
 import DisplayTextContext from "../contexts/display-text-context";
-import { Grid, makeStyles, MenuItem, Paper, Select, Typography } from "@material-ui/core";
+import { Grid, makeStyles, Paper, Typography } from "@material-ui/core";
+import BaseSelectionMenu from "./BaseSelectionMenu";
 
 // Find the last number in text separated by spaces.
 function findLastNumberInText( text ) {
@@ -29,14 +30,6 @@ const useStyles = makeStyles( {
 		fontSize: "16px",
 		overflowX: "scroll",
 		whiteSpace: "pre"
-	},
-	baseSelectionRoot: {
-		fontFamily: "Roboto Mono",
-		margin: "0px 18px 20px 0px",
-		minWidth: "75px"
-	},
-	baseSelectionInput: {
-		padding: "0px 0px 5px"
 	}
 } );
 
@@ -171,15 +164,7 @@ function SecondaryDisplay( ) {
 						HEX:
 					</Typography>
 
-					<Select className={ classes.baseSelectionRoot } inputProps={ { className: classes.baseSelectionInput } } onChange={ ( e ) => setCustomBase( e.target.value ) } value={ customBase }>
-						<MenuItem style={ { fontFamily: "Roboto Mono" } } value={ 0 }>NONE:</MenuItem>
-
-						{
-							Array.from( { length: 35 }, ( _, i ) => i + 2 ).map( ( item ) => (
-								<MenuItem key={ item } style={ { fontFamily: "Roboto Mono" } } value={ item }>B{ ( "0" + item ).slice( -2 ) }:</MenuItem>
-							) )
-						}
-					</Select>
+					<BaseSelectionMenu selectedBase={ customBase } setBase={ setCustomBase } />
 				</Grid>
 
 				<Grid item style={ { overflowX: "scroll" } }>
