@@ -11,8 +11,8 @@ function Display( ) {
 	}, [ displayText ] );
 
 	return (
-		<Paper square elevation={ 0 } style={ { textAlign: "right" } }>
-			<Typography ref={ displayParagraph } style={ { fontSize: "36px", overflowX: "scroll", padding: "5px 15px", whiteSpace: "nowrap" } }>
+		<Paper square elevation={ 0 } style={ { padding: "0px 16px", textAlign: "right" } }>
+			<Typography ref={ displayParagraph } style={ { fontSize: "36px", overflowX: "scroll", whiteSpace: "nowrap" } }>
 				{ displayText }
 			</Typography>
 		</Paper>

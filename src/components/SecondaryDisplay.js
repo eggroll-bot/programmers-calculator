@@ -2,6 +2,8 @@ import React from "react";
 import DisplayTextContext from "../contexts/display-text-context";
 import { Grid, makeStyles, MenuItem, Paper, Select, Typography } from "@material-ui/core";
 
+// TO-DO: Scroll all the way to the right as displayText updates.
+
 // Find the last number in text separated by spaces.
 function findLastNumberInText( text ) {
 	const tokens = text.split( " " );
@@ -28,12 +30,11 @@ const useStyles = makeStyles( {
 		fontFamily: "Roboto Mono",
 		fontSize: "16px",
 		overflowX: "scroll",
-		padding: "0px 15px",
 		whiteSpace: "pre"
 	},
 	baseSelectionRoot: {
 		fontFamily: "Roboto Mono",
-		margin: "0px 15px 20px",
+		marginBottom: "20px",
 		minWidth: "75px"
 	},
 	baseSelectionInput: {
@@ -146,7 +147,7 @@ function SecondaryDisplay( ) {
 	const classes = useStyles( );
 
 	return (
-		<Paper square elevation={ 0 } style={ { textAlign: "left" } }>
+		<Paper square elevation={ 0 } style={ { padding: "10px 16px 0px" } }>
 			<Grid container wrap="nowrap">
 				<Grid item>
 					<Typography className={ classes.displayText }>
