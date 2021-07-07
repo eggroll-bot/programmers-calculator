@@ -1,3 +1,5 @@
+import { insertMissingClosingParentheses } from "./expression-evaluation";
+
 const unaryOperations = {
 	"-": true,
 	"NOT": true
@@ -125,5 +127,9 @@ export default {
 
 		tokens.pop( );
 		setDisplayText( tokens.join( " " ) );
+	},
+	evaluate: ( _, displayText, setDisplayText ) => {
+		const preprocessedDisplayText = insertMissingClosingParentheses( displayText );
+		setDisplayText( preprocessedDisplayText );
 	}
 };
