@@ -1,8 +1,9 @@
 import displayOperation from "./display-operation";
+import { allOperations, unaryOperations } from "./operations";
 
 // TO-DO: Implement Ans.
 
-export default new Map( [
+const numpad = new Map( [
 	[
 		"+/-",
 		{
@@ -109,3 +110,13 @@ export default new Map( [
 		}
 	],
 ] );
+
+numpad.forEach( ( operationDetails, operation ) => {
+	if ( operationDetails.unary ) {
+		unaryOperations[ operation ] = true;
+	}
+
+	allOperations[ operation ] = operationDetails;
+} );
+
+export default numpad;

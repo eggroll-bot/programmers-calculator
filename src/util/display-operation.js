@@ -1,9 +1,5 @@
+import { unaryOperations } from "./operations";
 import { insertMissingClosingParentheses } from "./expression-evaluation";
-
-const unaryOperations = {
-	"-": true,
-	"NOT": true
-};
 
 export default {
 	appendOperation: ( itemText, displayText, setDisplayText ) => {

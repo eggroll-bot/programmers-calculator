@@ -1,6 +1,7 @@
 import displayOperation from "./display-operation";
+import { allOperations, unaryOperations } from "./operations";
 
-export default new Map( [
+const basicOperationPad = new Map( [
 	[
 		"÷",
 		{
@@ -37,3 +38,13 @@ export default new Map( [
 		}
 	]
 ] );
+
+basicOperationPad.forEach( ( operationDetails, operation ) => {
+	if ( operationDetails.unary ) {
+		unaryOperations[ operation ] = true;
+	}
+
+	allOperations[ operation ] = operationDetails;
+} );
+
+export default basicOperationPad;
