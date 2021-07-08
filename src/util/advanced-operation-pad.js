@@ -86,28 +86,40 @@ const advancedOperationPad = new Map( [
 		"POW",
 		{
 			unary: false,
-			onClick: displayOperation.appendOperation
+			onClick: displayOperation.appendOperation,
+			evaluate: ( left, right ) => {
+				return left ** right;
+			}
 		}
 	],
 	[
 		"NOT",
 		{
 			unary: true,
-			onClick: displayOperation.appendUnaryOperation
+			onClick: displayOperation.appendUnaryOperation,
+			evaluate: ( number ) => {
+				return ~number;
+			}
 		}
 	],
 	[
 		"AND",
 		{
 			unary: false,
-			onClick: displayOperation.appendOperation
+			onClick: displayOperation.appendOperation,
+			evaluate: ( left, right ) => {
+				return left & right;
+			}
 		}
 	],
 	[
 		"OR",
 		{
 			unary: false,
-			onClick: displayOperation.appendOperation
+			onClick: displayOperation.appendOperation,
+			evaluate: ( left, right ) => {
+				return left | right;
+			}
 		}
 	],
 	[
@@ -128,7 +140,10 @@ const advancedOperationPad = new Map( [
 		"XOR",
 		{
 			unary: false,
-			onClick: displayOperation.appendOperation
+			onClick: displayOperation.appendOperation,
+			evaluate: ( left, right ) => {
+				return left ^ right;
+			}
 		}
 	]
 ] );
