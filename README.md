@@ -8,7 +8,7 @@ The calculator follows the below order of operations. Higher precedence operatio
 
 1. NOT, UNARY NEGATIVE - RTL
 
-2. POW - LTR
+2. POW - RTL
 
 3. MULTIPLY, DIVIDE - LTR
 
