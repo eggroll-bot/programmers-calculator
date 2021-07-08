@@ -2,6 +2,16 @@
 
 A programmer's calculator with many useful operations to programmers.
 
+## Download
+
+To download binaries for this program, go [here](https://github.com/eggroll-bot/programmers-calculator/releases).
+
+## How to install
+
+1. Run the installer.
+
+2. Open the program.
+
 ## Order of Operations
 
 The calculator follows the below order of operations. Higher precedence operations will be run before lower precedence operations. If operators have the same precedence, they will be run in the order specified by their associativity. LTR is left-to-right associativity. RTL is right-to-left associativity.
