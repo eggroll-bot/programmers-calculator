@@ -129,7 +129,7 @@ export default {
 	evaluate: ( _, displayText, setDisplayText ) => {
 		try { // For any weird errors that are not caught already.
 			if ( !checkExpression( displayText ) ) {
-				setDisplayText( "0" );
+				console.log( "Expression failed pre-calculation validation" );
 				alert( "Failed to evaluate" );
 
 				return;
@@ -138,8 +138,8 @@ export default {
 			const preprocessedDisplayText = insertMissingClosingParentheses( displayText );
 			const expressionResult = evaluateExpression( preprocessedDisplayText );
 			setDisplayText( expressionResult );
-		} catch {
-			setDisplayText( "0" );
+		} catch ( e ) {
+			console.log( e );
 			alert( "Failed to evaluate" );
 		}
 	}
