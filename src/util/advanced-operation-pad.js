@@ -82,6 +82,10 @@ const advancedOperationPad = new Map( [
 		{
 			onClick: displayOperation.appendOperation,
 			evaluate: ( left, right ) => {
+				if ( right < 0n ) {
+					return undefined;
+				}
+
 				return left ** right;
 			}
 		}
