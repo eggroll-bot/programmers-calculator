@@ -1,3 +1,14 @@
+export function checkExpression( expression ) {
+	const tokens = expression.split( " " );
+	const lastToken = tokens[ tokens.length - 1 ];
+
+	if ( lastToken !== ")" && isNaN( lastToken ) ) { // Last token is an operator or opening parenthesis.
+		return false;
+	}
+
+	return true;
+}
+
 export function insertMissingClosingParentheses( text ) {
 	const tokens = text.split( " " );
 
@@ -12,4 +23,8 @@ export function insertMissingClosingParentheses( text ) {
 	}, { openingParenthesesCount: 0, closingParenthesesCount: 0 } );
 
 	return text + " )".repeat( openingParenthesesCount - closingParenthesesCount );
+}
+
+export function evaluateExpression( expression ) {
+	return expression; // TO-DO: Finish.
 }

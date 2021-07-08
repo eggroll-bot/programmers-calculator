@@ -1,5 +1,5 @@
 import { unaryOperations } from "./operations";
-import { insertMissingClosingParentheses } from "./expression-evaluation";
+import { checkExpression, evaluateExpression, insertMissingClosingParentheses } from "./expression-evaluation";
 
 export default {
 	appendOperation: ( itemText, displayText, setDisplayText ) => {
@@ -127,7 +127,15 @@ export default {
 		setDisplayText( tokens.join( " " ) );
 	},
 	evaluate: ( _, displayText, setDisplayText ) => {
+		if ( !checkExpression( displayText ) ) {
+			setDisplayText( "0" );
+			alert( "Failed to evaluate" );
+
+			return;
+		}
+
 		const preprocessedDisplayText = insertMissingClosingParentheses( displayText );
-		setDisplayText( preprocessedDisplayText );
+		const expressionResult = evaluateExpression( preprocessedDisplayText );
+		setDisplayText( expressionResult );
 	}
 };
