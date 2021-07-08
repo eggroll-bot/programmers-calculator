@@ -51,7 +51,9 @@ const basicOperationPad = new Map( [
 ] );
 
 basicOperationPad.forEach( ( operationDetails, operation ) => {
-	allOperations[ operation ] = operationDetails;
+	if ( operationDetails.evaluate ) {
+		allOperations[ operation ] = operationDetails;
+	}
 } );
 
 export default basicOperationPad;

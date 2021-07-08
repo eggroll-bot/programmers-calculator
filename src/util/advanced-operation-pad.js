@@ -146,7 +146,9 @@ advancedOperationPad.forEach( ( operationDetails, operation ) => {
 		unaryOperations[ operation ] = true;
 	}
 
-	allOperations[ operation ] = operationDetails;
+	if ( operationDetails.evaluate ) {
+		allOperations[ operation ] = operationDetails;
+	}
 } );
 
 export default advancedOperationPad;
