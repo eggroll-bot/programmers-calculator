@@ -83,7 +83,7 @@ export function evaluateExpression( expression ) {
 	} );
 
 	if ( outputArray.length > 1 ) {
-		throw "Output array has more than 1 element at the end.";
+		throw "Output array has more than 1 element at the end";
 	}
 
 	return outputArray[ 0 ];
