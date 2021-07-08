@@ -1,7 +1,7 @@
 {
   "name": "programmers-calculator",
   "main": "public/electron.js",
-  "homepage": "https://progcalc.bmak.xyz",
+  "homepage": "./",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
