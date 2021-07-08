@@ -1,24 +1,39 @@
 import displayOperation from "./display-operation";
 
-export default [
-	{
-		text: "÷",
-		onClick: displayOperation.appendOperation
-	},
-	{
-		text: "×",
-		onClick: displayOperation.appendOperation
-	},
-	{
-		text: "−",
-		onClick: displayOperation.appendOperation
-	},
-	{
-		text: "+",
-		onClick: displayOperation.appendOperation
-	},
-	{
-		text: "=",
-		onClick: displayOperation.evaluate
-	}
-];
+export default new Map( [
+	[
+		"÷",
+		{
+			unary: false,
+			onClick: displayOperation.appendOperation
+		}
+	],
+	[
+		"×",
+		{
+			unary: false,
+			onClick: displayOperation.appendOperation
+		}
+	],
+	[
+		"−",
+		{
+			unary: false,
+			onClick: displayOperation.appendOperation
+		}
+	],
+	[
+		"+",
+		{
+			unary: false,
+			onClick: displayOperation.appendOperation
+		}
+	],
+	[
+		"=",
+		{
+			unary: false,
+			onClick: displayOperation.evaluate
+		}
+	]
+] );

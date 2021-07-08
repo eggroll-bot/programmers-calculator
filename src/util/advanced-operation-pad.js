@@ -1,52 +1,88 @@
 import displayOperation from "./display-operation";
 
-export default [
-	{
-		text: "SLL",
-		onClick: displayOperation.appendOperation
-	},
-	{
-		text: "SRL",
-		onClick: displayOperation.appendOperation
-	},
-	{
-		text: "SRA",
-		onClick: displayOperation.appendOperation
-	},
-	{
-		text: "ROL",
-		onClick: displayOperation.appendOperation
-	},
-	{
-		text: "ROR",
-		onClick: displayOperation.appendOperation
-	},
-	{
-		text: "POW",
-		onClick: displayOperation.appendOperation
-	},
-	{
-		text: "NOT",
-		onClick: displayOperation.appendUnaryOperation
-	},
-	{
-		text: "AND",
-		onClick: displayOperation.appendOperation
-	},
-	{
-		text: "OR",
-		onClick: displayOperation.appendOperation
-	},
-	{
-		text: "(",
-		onClick: displayOperation.appendParentheses
-	},
-	{
-		text: ")",
-		onClick: displayOperation.appendParentheses
-	},
-	{
-		text: "XOR",
-		onClick: displayOperation.appendOperation
-	}
-];
+export default new Map( [
+	[
+		"SLL",
+		{
+			unary: false,
+			onClick: displayOperation.appendOperation
+		}
+	],
+	[
+		"SRL",
+		{
+			unary: false,
+			onClick: displayOperation.appendOperation
+		}
+	],
+	[
+		"SRA",
+		{
+			unary: false,
+			onClick: displayOperation.appendOperation
+		}
+	],
+	[
+		"ROL",
+		{
+			unary: false,
+			onClick: displayOperation.appendOperation
+		}
+	],
+	[
+		"ROR",
+		{
+			unary: false,
+			onClick: displayOperation.appendOperation
+		}
+	],
+	[
+		"POW",
+		{
+			unary: false,
+			onClick: displayOperation.appendOperation
+		}
+	],
+	[
+		"NOT",
+		{
+			unary: true,
+			onClick: displayOperation.appendUnaryOperation
+		}
+	],
+	[
+		"AND",
+		{
+			unary: false,
+			onClick: displayOperation.appendOperation
+		}
+	],
+	[
+		"OR",
+		{
+			unary: false,
+			onClick: displayOperation.appendOperation
+		}
+	],
+	[
+		"(",
+		{
+			unary: false,
+			onClick: displayOperation.appendParentheses
+		}
+	],
+	[
+		")",
+		{
+			unary: false,
+			onClick: displayOperation.appendParentheses
+		}
+	],
+	[
+		"XOR",
+		{
+			unary: false,
+			onClick: displayOperation.appendOperation
+		}
+	]
+] );

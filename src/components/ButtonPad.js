@@ -9,15 +9,15 @@ function ButtonPad( props ) {
 	return (
 		<Grid container justify="center" style={ { height: props.height, width: props.width } }>
 			{
-				props.operations.map( ( item ) => (
-					<Grid item key={ item.text } xs={ props.xs }>
+				[ ...props.operations.entries( ) ].map( ( [ operation, { onClick } ] ) => (
+					<Grid item key={ operation } xs={ props.xs }>
 						<Button color="primary"
 							disableFocusRipple={ true }
 							onClick={ ( ) => {
-								item.onClick( item.text, displayText, setDisplayText );
+								onClick( operation, displayText, setDisplayText );
 							} }
 							style={ { fontSize: props.fontSize, height: "100%", width: "100%" } }>
-							{ item.text }
+							{ operation }
 						</Button>
 					</Grid>
 				) )
@@ -29,7 +29,7 @@ function ButtonPad( props ) {
 ButtonPad.propTypes = {
 	fontSize: PropTypes.string.isRequired,
 	height: PropTypes.string,
-	operations: PropTypes.array.isRequired,
+	operations: PropTypes.object.isRequired,
 	width: PropTypes.string,
 	xs: PropTypes.number.isRequired
 };

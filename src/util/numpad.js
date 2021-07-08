@@ -2,65 +2,110 @@ import displayOperation from "./display-operation";
 
 // TO-DO: Implement Ans.
 
-export default [
-	{
-		text: "+/-",
-		onClick: displayOperation.negate
-	},
-	{
-		text: "C",
-		onClick: displayOperation.clear
-	},
-	{
-		text: "⌫",
-		onClick: displayOperation.backspace
-	},
-	{
-		text: "7",
-		onClick: displayOperation.appendNumber
-	},
-	{
-		text: "8",
-		onClick: displayOperation.appendNumber
-	},
-	{
-		text: "9",
-		onClick: displayOperation.appendNumber
-	},
-	{
-		text: "4",
-		onClick: displayOperation.appendNumber
-	},
-	{
-		text: "5",
-		onClick: displayOperation.appendNumber
-	},
-	{
-		text: "6",
-		onClick: displayOperation.appendNumber
-	},
-	{
-		text: "1",
-		onClick: displayOperation.appendNumber
-	},
-	{
-		text: "2",
-		onClick: displayOperation.appendNumber
-	},
-	{
-		text: "3",
-		onClick: displayOperation.appendNumber
-	},
-	{
-		text: "-",
-		onClick: displayOperation.appendUnaryOperation
-	},
-	{
-		text: "0",
-		onClick: displayOperation.appendNumber
-	},
-	{
-		text: "ANS",
-		onClick: ( ) => { }
-	}
-];
+export default new Map( [
+	[
+		"+/-",
+		{
+			unary: false,
+			onClick: displayOperation.negate
+		}
+	],
+	[
+		"C",
+		{
+			unary: false,
+			onClick: displayOperation.clear
+		}
+	],
+	[
+		"⌫",
+		{
+			unary: false,
+			onClick: displayOperation.backspace
+		}
+	],
+	[
+		"7",
+		{
+			unary: false,
+			onClick: displayOperation.appendNumber
+		}
+	],
+	[
+		"8",
+		{
+			unary: false,
+			onClick: displayOperation.appendNumber
+		}
+	],
+	[
+		"9",
+		{
+			unary: false,
+			onClick: displayOperation.appendNumber
+		}
+	],
+	[
+		"4",
+		{
+			unary: false,
+			onClick: displayOperation.appendNumber
+		}
+	],
+	[
+		"5",
+		{
+			unary: false,
+			onClick: displayOperation.appendNumber
+		}
+	],
+	[
+		"6",
+		{
+			unary: false,
+			onClick: displayOperation.appendNumber
+		}
+	],
+	[
+		"1",
+		{
+			unary: false,
+			onClick: displayOperation.appendNumber
+		}
+	],
+	[
+		"2",
+		{
+			unary: false,
+			onClick: displayOperation.appendNumber
+		}
+	],
+	[
+		"3",
+		{
+			unary: false,
+			onClick: displayOperation.appendNumber
+		}
+	],
+	[
+		"-",
+		{
+			unary: true,
+			onClick: displayOperation.appendUnaryOperation
+		}
+	],
+	[
+		"0",
+		{
+			unary: false,
+			onClick: displayOperation.appendNumber
+		}
+	],
+	[
+		"ANS",
+		{
+			unary: false,
+			onClick: ( ) => { }
+		}
+	],
+] );
