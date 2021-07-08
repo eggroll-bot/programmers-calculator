@@ -3,27 +3,39 @@ import { allOperations } from "./operations";
 
 const basicOperationPad = new Map( [
 	[
-		"÷",
+		"÷INT",
 		{
-			onClick: displayOperation.appendOperation
+			onClick: displayOperation.appendOperation,
+			evaluate: ( left, right ) => {
+				return left / right;
+			}
 		}
 	],
 	[
 		"×",
 		{
-			onClick: displayOperation.appendOperation
+			onClick: displayOperation.appendOperation,
+			evaluate: ( left, right ) => {
+				return left * right;
+			}
 		}
 	],
 	[
 		"−",
 		{
-			onClick: displayOperation.appendOperation
+			onClick: displayOperation.appendOperation,
+			evaluate: ( left, right ) => {
+				return left - right;
+			}
 		}
 	],
 	[
 		"+",
 		{
-			onClick: displayOperation.appendOperation
+			onClick: displayOperation.appendOperation,
+			evaluate: ( left, right ) => {
+				return left + right;
+			}
 		}
 	],
 	[
