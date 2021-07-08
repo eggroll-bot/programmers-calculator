@@ -1,5 +1,5 @@
 import displayOperation from "./display-operation";
-import { allOperations, unaryOperations } from "./operations";
+import { allOperations } from "./operations";
 
 const basicOperationPad = new Map( [
 	[
