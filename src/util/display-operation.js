@@ -6,7 +6,7 @@ export default {
 		const tokens = displayText.split( " " );
 		const lastToken = tokens[ tokens.length - 1 ];
 
-		if ( lastToken === "(" || unaryOperations[ lastToken ] ) { // No operations after a beginning parenthesis or unary operation.
+		if ( lastToken === "(" || unaryOperations.get( lastToken ) ) { // No operations after a beginning parenthesis or unary operation.
 			return;
 		}
 

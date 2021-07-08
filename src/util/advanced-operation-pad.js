@@ -6,6 +6,7 @@ const advancedOperationPad = new Map( [
 		"SLL",
 		{
 			onClick: displayOperation.appendOperation,
+			precedence: 5,
 			evaluate: ( left, right ) => {
 				if ( right < 0n ) {
 					return undefined;
@@ -19,6 +20,7 @@ const advancedOperationPad = new Map( [
 		"SRL32",
 		{
 			onClick: displayOperation.appendOperation,
+			precedence: 5,
 			evaluate: ( left, right ) => {
 				if ( right < 0n ) {
 					return undefined;
@@ -34,6 +36,7 @@ const advancedOperationPad = new Map( [
 		"SRA",
 		{
 			onClick: displayOperation.appendOperation,
+			precedence: 5,
 			evaluate: ( left, right ) => {
 				if ( right < 0n ) {
 					return undefined;
@@ -47,6 +50,7 @@ const advancedOperationPad = new Map( [
 		"ROL32",
 		{
 			onClick: displayOperation.appendOperation,
+			precedence: 5,
 			evaluate: ( left, right ) => {
 				if ( right < 0n ) {
 					return undefined;
@@ -64,6 +68,7 @@ const advancedOperationPad = new Map( [
 		"ROR32",
 		{
 			onClick: displayOperation.appendOperation,
+			precedence: 5,
 			evaluate: ( left, right ) => {
 				if ( right < 0n ) {
 					return undefined;
@@ -81,6 +86,7 @@ const advancedOperationPad = new Map( [
 		"POW",
 		{
 			onClick: displayOperation.appendOperation,
+			precedence: 2,
 			evaluate: ( left, right ) => {
 				if ( right < 0n ) {
 					return undefined;
@@ -95,6 +101,7 @@ const advancedOperationPad = new Map( [
 		{
 			unary: true,
 			onClick: displayOperation.appendUnaryOperation,
+			precedence: 1,
 			evaluate: ( number ) => {
 				return ~number;
 			}
@@ -104,6 +111,7 @@ const advancedOperationPad = new Map( [
 		"AND",
 		{
 			onClick: displayOperation.appendOperation,
+			precedence: 6,
 			evaluate: ( left, right ) => {
 				return left & right;
 			}
@@ -113,6 +121,7 @@ const advancedOperationPad = new Map( [
 		"OR",
 		{
 			onClick: displayOperation.appendOperation,
+			precedence: 8,
 			evaluate: ( left, right ) => {
 				return left | right;
 			}
@@ -134,6 +143,7 @@ const advancedOperationPad = new Map( [
 		"XOR",
 		{
 			onClick: displayOperation.appendOperation,
+			precedence: 7,
 			evaluate: ( left, right ) => {
 				return left ^ right;
 			}
@@ -143,11 +153,11 @@ const advancedOperationPad = new Map( [
 
 advancedOperationPad.forEach( ( operationDetails, operation ) => {
 	if ( operationDetails.unary ) {
-		unaryOperations[ operation ] = true;
+		unaryOperations.set( operation, true );
 	}
 
 	if ( operationDetails.evaluate ) {
-		allOperations[ operation ] = operationDetails;
+		allOperations.set( operation, operationDetails );
 	}
 } );
 

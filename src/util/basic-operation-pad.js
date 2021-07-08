@@ -6,6 +6,7 @@ const basicOperationPad = new Map( [
 		"÷INT",
 		{
 			onClick: displayOperation.appendOperation,
+			precedence: 3,
 			evaluate: ( left, right ) => {
 				if ( right === 0n ) {
 					return undefined;
@@ -19,6 +20,7 @@ const basicOperationPad = new Map( [
 		"×",
 		{
 			onClick: displayOperation.appendOperation,
+			precedence: 3,
 			evaluate: ( left, right ) => {
 				return left * right;
 			}
@@ -28,6 +30,7 @@ const basicOperationPad = new Map( [
 		"−",
 		{
 			onClick: displayOperation.appendOperation,
+			precedence: 4,
 			evaluate: ( left, right ) => {
 				return left - right;
 			}
@@ -37,6 +40,7 @@ const basicOperationPad = new Map( [
 		"+",
 		{
 			onClick: displayOperation.appendOperation,
+			precedence: 4,
 			evaluate: ( left, right ) => {
 				return left + right;
 			}
@@ -52,7 +56,7 @@ const basicOperationPad = new Map( [
 
 basicOperationPad.forEach( ( operationDetails, operation ) => {
 	if ( operationDetails.evaluate ) {
-		allOperations[ operation ] = operationDetails;
+		allOperations.set( operation, operationDetails );
 	}
 } );
 

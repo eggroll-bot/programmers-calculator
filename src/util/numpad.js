@@ -81,6 +81,7 @@ const numpad = new Map( [
 		{
 			unary: true,
 			onClick: displayOperation.appendUnaryOperation,
+			precedence: 1,
 			evaluate: ( number ) => {
 				return -number;
 			}
@@ -102,11 +103,11 @@ const numpad = new Map( [
 
 numpad.forEach( ( operationDetails, operation ) => {
 	if ( operationDetails.unary ) {
-		unaryOperations[ operation ] = true;
+		unaryOperations.set( operation, true );
 	}
 
 	if ( operationDetails.evaluate ) {
-		allOperations[ operation ] = operationDetails;
+		allOperations.set( operation, operationDetails );
 	}
 } );
 
