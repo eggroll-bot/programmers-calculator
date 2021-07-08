@@ -127,12 +127,9 @@ export default {
 		setDisplayText( tokens.join( " " ) );
 	},
 	evaluate: ( _, displayText, setDisplayText ) => {
-		try { // For any weird errors that are not caught already.
+		try { // For any exceptions that arise during calculation and any weird errors that are not caught already.
 			if ( !checkExpression( displayText ) ) {
-				console.log( "Expression failed pre-calculation validation" );
-				alert( "Failed to evaluate" );
-
-				return;
+				throw "Expression failed pre-calculation validation";
 			}
 
 			const preprocessedDisplayText = insertMissingClosingParentheses( displayText );
