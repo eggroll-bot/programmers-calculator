@@ -35,10 +35,6 @@ const basicOperationPad = new Map( [
 ] );
 
 basicOperationPad.forEach( ( operationDetails, operation ) => {
-	if ( operationDetails.unary ) {
-		unaryOperations[ operation ] = true;
-	}
-
 	allOperations[ operation ] = operationDetails;
 } );
 
