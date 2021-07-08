@@ -86,6 +86,7 @@ const advancedOperationPad = new Map( [
 		"POW",
 		{
 			onClick: displayOperation.appendOperation,
+			rtl: true,
 			precedence: 2,
 			evaluate: ( left, right ) => {
 				if ( right < 0n ) {
@@ -101,6 +102,7 @@ const advancedOperationPad = new Map( [
 		{
 			unary: true,
 			onClick: displayOperation.appendUnaryOperation,
+			rtl: true,
 			precedence: 1,
 			evaluate: ( number ) => {
 				return ~number;

@@ -81,6 +81,7 @@ const numpad = new Map( [
 		{
 			unary: true,
 			onClick: displayOperation.appendUnaryOperation,
+			rtl: true,
 			precedence: 1,
 			evaluate: ( number ) => {
 				return -number;
