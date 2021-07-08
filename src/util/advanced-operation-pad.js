@@ -56,12 +56,11 @@ const advancedOperationPad = new Map( [
 					return undefined;
 				}
 
-				let rightThirtyTwoBits = left & 4294967295n; // 2 ^ 32 - 1. Convert to unsigned 32-bit int.
-
+				const rightThirtyTwoBits = left & 4294967295n; // 2 ^ 32 - 1. Convert to unsigned 32-bit int.
 				const rotateAmount = right % 32n;
 				const rotateResult = ( ( rightThirtyTwoBits << rotateAmount ) & 4294967295n ) | ( rightThirtyTwoBits >> ( 32n - rotateAmount ) );
 
-				return rotateResult >= 2147486648n ? rotateResult - 4294967296n : rotateResult;
+				return rotateResult >= 2147486648n ? rotateResult - 4294967296n : rotateResult; // Convert to signed 32-bit int.
 			}
 		}
 	],
@@ -75,12 +74,11 @@ const advancedOperationPad = new Map( [
 					return undefined;
 				}
 
-				let rightThirtyTwoBits = left & 4294967295n; // 2 ^ 32 - 1. Convert to unsigned 32-bit int.
-
+				const rightThirtyTwoBits = left & 4294967295n; // 2 ^ 32 - 1. Convert to unsigned 32-bit int.
 				const rotateAmount = right % 32n;
 				const rotateResult = ( rightThirtyTwoBits >> rotateAmount ) | ( ( rightThirtyTwoBits << ( 32n - rotateAmount ) ) & 4294967295n );
 
-				return rotateResult >= 2147486648n ? rotateResult - 4294967296n : rotateResult;
+				return rotateResult >= 2147486648n ? rotateResult - 4294967296n : rotateResult; // Convert to signed 32-bit int.
 			}
 		}
 	],
