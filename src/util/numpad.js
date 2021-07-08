@@ -80,7 +80,10 @@ const numpad = new Map( [
 		"-",
 		{
 			unary: true,
-			onClick: displayOperation.appendUnaryOperation
+			onClick: displayOperation.appendUnaryOperation,
+			evaluate: ( number ) => {
+				return -number;
+			}
 		}
 	],
 	[
