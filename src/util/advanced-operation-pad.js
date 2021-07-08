@@ -5,7 +5,6 @@ const advancedOperationPad = new Map( [
 	[
 		"SLL",
 		{
-			unary: false,
 			onClick: displayOperation.appendOperation,
 			evaluate: ( left, right ) => {
 				if ( right < 0n ) {
@@ -19,7 +18,6 @@ const advancedOperationPad = new Map( [
 	[
 		"SRL32",
 		{
-			unary: false,
 			onClick: displayOperation.appendOperation,
 			evaluate: ( left, right ) => {
 				if ( right < 0n ) {
@@ -35,7 +33,6 @@ const advancedOperationPad = new Map( [
 	[
 		"SRA",
 		{
-			unary: false,
 			onClick: displayOperation.appendOperation,
 			evaluate: ( left, right ) => {
 				if ( right < 0n ) {
@@ -49,7 +46,6 @@ const advancedOperationPad = new Map( [
 	[
 		"ROL32",
 		{
-			unary: false,
 			onClick: displayOperation.appendOperation,
 			evaluate: ( left, right ) => {
 				if ( right < 0n ) {
@@ -67,7 +63,6 @@ const advancedOperationPad = new Map( [
 	[
 		"ROR32",
 		{
-			unary: false,
 			onClick: displayOperation.appendOperation,
 			evaluate: ( left, right ) => {
 				if ( right < 0n ) {
@@ -85,7 +80,6 @@ const advancedOperationPad = new Map( [
 	[
 		"POW",
 		{
-			unary: false,
 			onClick: displayOperation.appendOperation,
 			evaluate: ( left, right ) => {
 				return left ** right;
@@ -105,7 +99,6 @@ const advancedOperationPad = new Map( [
 	[
 		"AND",
 		{
-			unary: false,
 			onClick: displayOperation.appendOperation,
 			evaluate: ( left, right ) => {
 				return left & right;
@@ -115,7 +108,6 @@ const advancedOperationPad = new Map( [
 	[
 		"OR",
 		{
-			unary: false,
 			onClick: displayOperation.appendOperation,
 			evaluate: ( left, right ) => {
 				return left | right;
@@ -125,21 +117,18 @@ const advancedOperationPad = new Map( [
 	[
 		"(",
 		{
-			unary: false,
 			onClick: displayOperation.appendParentheses
 		}
 	],
 	[
 		")",
 		{
-			unary: false,
 			onClick: displayOperation.appendParentheses
 		}
 	],
 	[
 		"XOR",
 		{
-			unary: false,
 			onClick: displayOperation.appendOperation,
 			evaluate: ( left, right ) => {
 				return left ^ right;

@@ -7,84 +7,72 @@ const numpad = new Map( [
 	[
 		"+/-",
 		{
-			unary: false,
 			onClick: displayOperation.negate
 		}
 	],
 	[
 		"C",
 		{
-			unary: false,
 			onClick: displayOperation.clear
 		}
 	],
 	[
 		"⌫",
 		{
-			unary: false,
 			onClick: displayOperation.backspace
 		}
 	],
 	[
 		"7",
 		{
-			unary: false,
 			onClick: displayOperation.appendNumber
 		}
 	],
 	[
 		"8",
 		{
-			unary: false,
 			onClick: displayOperation.appendNumber
 		}
 	],
 	[
 		"9",
 		{
-			unary: false,
 			onClick: displayOperation.appendNumber
 		}
 	],
 	[
 		"4",
 		{
-			unary: false,
 			onClick: displayOperation.appendNumber
 		}
 	],
 	[
 		"5",
 		{
-			unary: false,
 			onClick: displayOperation.appendNumber
 		}
 	],
 	[
 		"6",
 		{
-			unary: false,
 			onClick: displayOperation.appendNumber
 		}
 	],
 	[
 		"1",
 		{
-			unary: false,
 			onClick: displayOperation.appendNumber
 		}
 	],
 	[
 		"2",
 		{
-			unary: false,
 			onClick: displayOperation.appendNumber
 		}
 	],
 	[
 		"3",
 		{
-			unary: false,
 			onClick: displayOperation.appendNumber
 		}
 	],
@@ -98,14 +86,12 @@ const numpad = new Map( [
 	[
 		"0",
 		{
-			unary: false,
 			onClick: displayOperation.appendNumber
 		}
 	],
 	[
 		"ANS",
 		{
-			unary: false,
 			onClick: ( ) => { }
 		}
 	],

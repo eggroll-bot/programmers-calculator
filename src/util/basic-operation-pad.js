@@ -5,35 +5,30 @@ const basicOperationPad = new Map( [
 	[
 		"÷",
 		{
-			unary: false,
 			onClick: displayOperation.appendOperation
 		}
 	],
 	[
 		"×",
 		{
-			unary: false,
 			onClick: displayOperation.appendOperation
 		}
 	],
 	[
 		"−",
 		{
-			unary: false,
 			onClick: displayOperation.appendOperation
 		}
 	],
 	[
 		"+",
 		{
-			unary: false,
 			onClick: displayOperation.appendOperation
 		}
 	],
 	[
 		"=",
 		{
-			unary: false,
 			onClick: displayOperation.evaluate
 		}
 	]
