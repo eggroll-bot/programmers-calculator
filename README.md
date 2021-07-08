@@ -16,7 +16,7 @@ Binaries coming soon...
 
 ## Web version
 
-A web version of this calculator is available [here](https://progcalc.bmak.xyz/). Note that certain features may not work or be buggy depending on your browser. Use the desktop version to ensure a consistent experience.
+A web version of this calculator is available [here](https://progcalc.bmak.xyz/). Note that certain features may not work or may be buggy depending on your browser. Use the desktop version to ensure a consistent experience.
 
 ## Order of operations
 
