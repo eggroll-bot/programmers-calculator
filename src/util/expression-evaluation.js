@@ -31,13 +31,13 @@ export function insertMissingClosingParentheses( text ) {
 function evaluateOperation( outputArray, operationArray ) {
 	let result = "";
 	const operator = operationArray.pop( );
-	const firstNumber = BigInt( outputArray.pop( ) );
+	const rightNumber = BigInt( outputArray.pop( ) );
 
 	if ( unaryOperations.get( operator ) ) { // Operator is a unary operator.
-		result = allOperations.get( operator ).evaluate( firstNumber );
+		result = allOperations.get( operator ).evaluate( rightNumber );
 	} else {
-		const secondNumber = BigInt( outputArray.pop( ) );
-		result = allOperations.get( operator ).evaluate( firstNumber, secondNumber );
+		const leftNumber = BigInt( outputArray.pop( ) );
+		result = allOperations.get( operator ).evaluate( leftNumber, rightNumber );
 	}
 
 	outputArray.push( result.toString( ) );
