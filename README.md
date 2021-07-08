@@ -14,6 +14,10 @@ Binaries coming soon...
 
 2. Open the program.
 
+## Web version
+
+A web version of this calculator is available [here](https://progcalc.bmak.xyz/). Note that certain features may not work or be buggy depending on your browser. Use the desktop version to ensure a consistent experience.
+
 ## Order of operations
 
 The calculator follows the below order of operations. Higher precedence operations will be run before lower precedence operations. If operators have the same precedence, they will be run in the order specified by their associativity. LTR is left-to-right associativity. RTL is right-to-left associativity.
