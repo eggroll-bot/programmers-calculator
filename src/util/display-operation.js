@@ -80,6 +80,8 @@ export default {
 			}
 
 			return;
+		} else if ( lastToken === "-" && itemText === "0" ) { // Do not allow negative zero.
+			return;
 		}
 
 		setDisplayText( displayText + itemText );
