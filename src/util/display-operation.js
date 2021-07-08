@@ -127,15 +127,20 @@ export default {
 		setDisplayText( tokens.join( " " ) );
 	},
 	evaluate: ( _, displayText, setDisplayText ) => {
-		if ( !checkExpression( displayText ) ) {
+		try { // For any weird errors that are not caught already.
+			if ( !checkExpression( displayText ) ) {
+				setDisplayText( "0" );
+				alert( "Failed to evaluate" );
+
+				return;
+			}
+
+			const preprocessedDisplayText = insertMissingClosingParentheses( displayText );
+			const expressionResult = evaluateExpression( preprocessedDisplayText );
+			setDisplayText( expressionResult );
+		} catch {
 			setDisplayText( "0" );
 			alert( "Failed to evaluate" );
-
-			return;
 		}
-
-		const preprocessedDisplayText = insertMissingClosingParentheses( displayText );
-		const expressionResult = evaluateExpression( preprocessedDisplayText );
-		setDisplayText( expressionResult );
 	}
 };
