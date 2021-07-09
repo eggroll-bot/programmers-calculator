@@ -4,15 +4,13 @@ A programmer's calculator with many useful operations to programmers.
 
 ## Download
 
-~~To download binaries for this program, go [here](https://github.com/eggroll-bot/programmers-calculator/releases).~~
+To download binaries for this program, go [here](https://github.com/eggroll-bot/programmers-calculator/releases). Currently, there are installer and portable versions for Windows and Linux. macOS support is untested and requires building from source.
 
-Binaries coming soon...
+## How to build
 
-## How to install
+1. Get Yarn if you don't already have it.
 
-1. Run the installer.
-
-2. Open the program.
+2. Run `yarn && yarn dist`.
 
 ## Web version
 
