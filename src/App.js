@@ -2,11 +2,11 @@ import "@fontsource/roboto";
 import "@fontsource/roboto-mono";
 
 import React from "react";
+import { createTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import { CssBaseline } from "@material-ui/core";
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import MainScreen from "./components/MainScreen";
 
-const lightTheme = createMuiTheme( {
+const lightTheme = createTheme( {
 	palette: {
 		background: {
 			default: "#DDDDDD",
@@ -22,7 +22,7 @@ const lightTheme = createMuiTheme( {
 	}
 } );
 
-const darkTheme = createMuiTheme( {
+const darkTheme = createTheme( {
 	palette: {
 		background: {
 			default: "#202020",

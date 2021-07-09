@@ -7,7 +7,7 @@ function ButtonPad( props ) {
 	const [ displayText, setDisplayText ] = React.useContext( DisplayTextContext );
 
 	return (
-		<Grid container justify="center" style={ { height: props.height, width: props.width } }>
+		<Grid container justifyContent="center" style={ { height: props.height, width: props.width } }>
 			{
 				[ ...props.operations.entries( ) ].map( ( [ operation, { onClick } ] ) => (
 					<Grid item key={ operation } xs={ props.xs }>
