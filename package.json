@@ -1,5 +1,8 @@
 {
   "name": "programmers-calculator",
+  "author": {
+    "name": "Brian Mak"
+  },
   "main": "public/electron.js",
   "homepage": "./",
   "version": "1.0.0",
@@ -60,6 +63,8 @@
     ]
   },
   "build": {
+    "productName": "Programmer's Calculator",
+    "copyright": "Copyright © 2021 ${author}",
     "extraFiles": [
       "LICENSE.txt",
       "README.md",
@@ -67,6 +72,10 @@
         "from": "build/static/js",
         "filter": [ "*LICENSE.txt" ]
       }
-    ]
+    ],
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }
