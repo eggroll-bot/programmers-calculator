@@ -7,10 +7,7 @@ function createWindow( ) {
 		title: "Programmer's Calculator",
 		width: isDev ? 1100 : 800,
 		height: 650,
-		resizable: false,
-		webPreferences: {
-			preload: path.join( __dirname, "preload.js" )
-		}
+		resizable: false
 	} );
 
 	Menu.setApplicationMenu( null ); // Disable menubar at top.
