@@ -37,7 +37,3 @@ The calculator follows the below order of operations. Higher precedence operatio
 7. XOR - LTR
 
 8. OR - LTR
-
-## Upcoming features
-
-- Implementing the ANS button.

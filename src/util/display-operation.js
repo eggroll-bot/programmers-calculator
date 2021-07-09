@@ -1,5 +1,6 @@
 import { unaryOperations } from "./operations";
 import { checkExpression, evaluateExpression, insertMissingClosingParentheses } from "./expression-evaluation";
+import { lastAnswer, setLastAnswer } from "./answer-store";
 
 export default {
 	appendOperation: ( itemText, displayText, setDisplayText ) => {
@@ -82,6 +83,25 @@ export default {
 
 		setDisplayText( displayText + itemText );
 	},
+	appendLastAnswer: ( _, displayText, setDisplayText ) => {
+		const tokens = displayText.split( " " );
+		const lastToken = tokens[ tokens.length - 1 ];
+
+		if ( lastToken === "0" ) { // Ensure there's no leading zeros.
+			tokens.pop( );
+			tokens.push( lastAnswer );
+			setDisplayText( tokens.join( " " ) );
+
+			return;
+		}
+
+		// Last token is an operator that isn't a negative sign or closing parenthesis, or last token is a negative sign and last answer was negative.
+		if ( isNaN( lastToken ) && lastToken !== "-" && lastToken !== ")" || lastToken === "-" && lastAnswer < 0 ) {
+			setDisplayText( displayText + " " + lastAnswer );
+		} else if ( lastToken === "-" && lastAnswer > 0 ) { // Last token is a negative sign and last answer was positive.
+			setDisplayText( displayText + lastAnswer );
+		}
+	},
 	negate: ( _, displayText, setDisplayText ) => {
 		const tokens = displayText.split( " " );
 
@@ -135,6 +155,7 @@ export default {
 			const preprocessedDisplayText = insertMissingClosingParentheses( displayText );
 			const expressionResult = evaluateExpression( preprocessedDisplayText );
 			setDisplayText( expressionResult );
+			setLastAnswer( expressionResult );
 		} catch ( e ) {
 			console.log( e );
 			alert( "Failed to evaluate" );

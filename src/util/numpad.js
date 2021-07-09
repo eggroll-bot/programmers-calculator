@@ -1,8 +1,6 @@
 import displayOperation from "./display-operation";
 import { allOperations, unaryOperations } from "./operations";
 
-// TO-DO: Implement Ans.
-
 const numpad = new Map( [
 	[
 		"+/-",
@@ -97,7 +95,7 @@ const numpad = new Map( [
 	[
 		"ANS",
 		{
-			onClick: ( ) => { }
+			onClick: displayOperation.appendLastAnswer
 		}
 	],
 ] );
