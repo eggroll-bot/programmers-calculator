@@ -58,5 +58,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "build": {
+    "extraFiles": [
+      "LICENSE.txt",
+      "README.md",
+      {
+        "from": "build/static/js",
+        "filter": [ "*LICENSE.txt" ]
+      }
+    ]
   }
 }
