@@ -2,7 +2,7 @@ import React from "react";
 import DisplayTextContext from "../contexts/display-text-context";
 import Display from "./Display";
 import SecondaryDisplay from "./SecondaryDisplay";
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import ButtonPad from "./ButtonPad";
 import advancedOperationPad from "../util/advanced-operation-pad";
 import numpad from "../util/numpad";

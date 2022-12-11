@@ -8,31 +8,32 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@fontsource/roboto": "^4.4.5",
-    "@fontsource/roboto-mono": "^4.4.5",
-    "@material-ui/core": "^4.11.4",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@fontsource/roboto": "^4.5.8",
+    "@fontsource/roboto-mono": "^4.5.8",
+    "@mui/material": "^5.10.17",
+    "@mui/styles": "^5.10.16",
     "electron-is-dev": "^2.0.0",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3"
+    "react-scripts": "5.0.1"
   },
   "devDependencies": {
-    "concurrently": "^6.2.0",
-    "customize-cra": "^1.0.0",
+    "concurrently": "^7.6.0",
     "electron": "^13.1.4",
     "electron-builder": "^22.11.7",
-    "gh-pages": "^3.2.3",
-    "react-app-rewired": "^2.1.8",
-    "wait-on": "^5.3.0",
-    "yarn-audit-fix": "^6.3.2"
+    "gh-pages": "^4.0.0",
+    "wait-on": "^6.0.1",
+    "yarn-audit-fix": "^9.3.7"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "react-scripts start",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "electron": "wait-on tcp:3000 && electron .",
     "dev": "concurrently -k \"BROWSER=none yarn start\" \"yarn:electron\"",
     "dist": "yarn build && electron-builder"
@@ -43,39 +44,45 @@
       "react-app/jest"
     ]
   },
+  "browserslist_comment": {
+    "production": "Supports Material UI v5 and BigInt."
+  },
   "browserslist": {
     "production": [
-      "Android 91",
-      "Chrome 67",
-      "ChromeAndroid 67",
-      "Edge 79",
-      "Firefox 68",
-      "FirefoxAndroid 68",
-      "iOS 14",
-      "Opera 54",
-      "Safari 14",
-      "Samsung 9.2"
+      "Android >= 91",
+      "Chrome >= 90",
+      "ChromeAndroid >= 108",
+      "Edge >= 91",
+      "Electron >= 13.0.0",
+      "Firefox >= 78",
+      "FirefoxAndroid >= 107",
+      "iOS >= 14",
+      "Opera >= 76",
+      "Safari >= 14",
+      "Samsung >= 13.0",
+      "UCAndroid >= 13.4"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "Electron >= 13.0.0"
     ]
   },
   "build": {
     "productName": "Programmer's Calculator",
-    "copyright": "Copyright © 2021 ${author}",
+    "copyright": "Copyright © 2022 ${author}",
     "extraFiles": [
       "LICENSE.txt",
       "README.md",
       {
         "from": "build/static/js",
-        "filter": [ "*LICENSE.txt" ]
+        "filter": [
+          "*LICENSE.txt"
+        ]
       }
     ],
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true
     }
-  }
+  },
+  "packageManager": "yarn@3.3.0"
 }

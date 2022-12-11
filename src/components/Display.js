@@ -1,6 +1,6 @@
 import React from "react";
 import DisplayTextContext from "../contexts/display-text-context";
-import { Paper, Typography } from "@material-ui/core";
+import { Paper, Typography } from "@mui/material";
 
 function Display( ) {
 	const [ displayText ] = React.useContext( DisplayTextContext );

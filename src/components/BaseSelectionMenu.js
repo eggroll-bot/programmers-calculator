@@ -1,5 +1,6 @@
 import React from "react";
-import { makeStyles, MenuItem, Select } from "@material-ui/core";
+import { MenuItem, Select } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 
 const useStyles = makeStyles( {
@@ -17,7 +18,12 @@ function BaseSelectionMenu( props ) {
 	const classes = useStyles( );
 
 	return (
-		<Select className={ classes.baseSelectionRoot } inputProps={ { className: classes.baseSelectionInput } } onChange={ ( e ) => props.setBase( e.target.value ) } value={ props.selectedBase }>
+		<Select
+			className={ classes.baseSelectionRoot }
+			inputProps={ { className: classes.baseSelectionInput } }
+			onChange={ ( e ) => props.setBase( e.target.value ) }
+			value={ props.selectedBase }
+			variant="standard">
 			<MenuItem style={ { fontFamily: "Roboto Mono" } } value={ 0 }>NONE:</MenuItem>
 
 			{

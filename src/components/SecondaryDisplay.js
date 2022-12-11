@@ -1,6 +1,7 @@
 import React from "react";
 import DisplayTextContext from "../contexts/display-text-context";
-import { Grid, makeStyles, Paper, Typography } from "@material-ui/core";
+import { Grid, Paper, Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import BaseSelectionMenu from "./BaseSelectionMenu";
 
 // Find the last number in text separated by spaces.
