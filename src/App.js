@@ -2,11 +2,11 @@ import "@fontsource/roboto";
 import "@fontsource/roboto-mono";
 
 import React from "react";
-import { createTheme, ThemeProvider, StyledEngineProvider, adaptV4Theme } from "@mui/material/styles";
+import { createTheme, ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import MainScreen from "./components/MainScreen";
 
-const lightTheme = createTheme( adaptV4Theme( {
+const lightTheme = createTheme( {
 	palette: {
 		background: {
 			default: "#DDDDDD",
@@ -18,11 +18,11 @@ const lightTheme = createTheme( adaptV4Theme( {
 		secondary: {
 			main: "#FF9B48"
 		},
-		type: "light"
+		mode: "light"
 	}
-} ) );
+} );
 
-const darkTheme = createTheme( adaptV4Theme( {
+const darkTheme = createTheme( {
 	palette: {
 		background: {
 			default: "#202020",
@@ -34,9 +34,9 @@ const darkTheme = createTheme( adaptV4Theme( {
 		secondary: {
 			main: "#FF9B48"
 		},
-		type: "dark"
+		mode: "dark"
 	}
-} ) );
+} );
 
 function App( ) {
 	const [ darkMode, setDarkMode ] = React.useState( false );

@@ -11,7 +11,7 @@ function ButtonPad( props ) {
 			{
 				[ ...props.operations.entries( ) ].map( ( [ operation, { onClick } ] ) => (
 					<Grid item key={ operation } xs={ props.xs }>
-						<Button color="primary"
+						<Button
 							disableFocusRipple={ true }
 							onClick={ ( ) => {
 								onClick( operation, displayText, setDisplayText );
