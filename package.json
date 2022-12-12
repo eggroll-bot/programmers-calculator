@@ -72,6 +72,7 @@
     "copyright": "Copyright © 2022 ${author}",
     "extraFiles": [
       "LICENSE.txt",
+      "THIRD_PARTY_PROD_LICENSES.txt",
       "README.md",
       {
         "from": "build/static/js",
