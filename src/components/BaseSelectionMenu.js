@@ -1,27 +1,19 @@
 import React from "react";
 import { MenuItem, Select } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 
-const useStyles = makeStyles( {
-	baseSelectionRoot: {
-		fontFamily: "Roboto Mono",
-		margin: "0px 18px 20px 0px",
-		minWidth: "75px"
-	},
-	baseSelectionInput: {
-		padding: "0px 0px 5px"
-	}
-} );
-
 function BaseSelectionMenu( props ) {
-	const classes = useStyles( );
-
 	return (
 		<Select
-			className={ classes.baseSelectionRoot }
-			inputProps={ { className: classes.baseSelectionInput } }
 			onChange={ ( e ) => props.setBase( e.target.value ) }
+			sx={ {
+				fontFamily: "Roboto Mono",
+				margin: "0px 18px 20px 0px",
+				minWidth: "75px",
+				"& .MuiSelect-select": {
+					padding: "0px 0px 4px"
+				}
+			} }
 			value={ props.selectedBase }
 			variant="standard">
 			<MenuItem style={ { fontFamily: "Roboto Mono" } } value={ 0 }>NONE:</MenuItem>

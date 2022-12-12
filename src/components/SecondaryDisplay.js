@@ -1,7 +1,7 @@
 import React from "react";
-import DisplayTextContext from "../contexts/display-text-context";
+import { styled } from "@mui/material/styles";
 import { Grid, Paper, Typography } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import DisplayTextContext from "../contexts/display-text-context";
 import BaseSelectionMenu from "./BaseSelectionMenu";
 
 // Find the last number in text separated by spaces.
@@ -22,16 +22,16 @@ function findLastNumberInText( text ) {
  * character at the beginning.
 */
 function stylizeNumberString( numberString ) {
-	return numberString.substring( 0, 1 ) + ( "0".repeat( 4 - ( ( numberString.length - 1 ) % 4 ) ) + numberString.substring( 1 ) ).match( /.{1,4}/g ).join( " " ).toUpperCase( );
+	return numberString.substring( 0, 1 ) +
+		( "0".repeat( 4 - ( ( numberString.length - 1 ) % 4 ) ) +
+		numberString.substring( 1 ) ).match( /.{1,4}/g ).join( " " ).toUpperCase( );
 }
 
-const useStyles = makeStyles( {
-	displayText: {
-		fontFamily: "Roboto Mono",
-		fontSize: "16px",
-		overflowX: "scroll",
-		whiteSpace: "pre"
-	}
+const TypographySecondaryDisplay = styled( Typography )( {
+	fontFamily: "Roboto Mono",
+	fontSize: "16px",
+	overflowX: "scroll",
+	whiteSpace: "pre"
 } );
 
 function SecondaryDisplay( ) {
@@ -143,51 +143,49 @@ function SecondaryDisplay( ) {
 		} );
 	}, [ bin, onesComplement, twosComplement, hex, customBaseConverted ] );
 
-	const classes = useStyles( );
-
 	return (
 		<Paper square elevation={ 0 } style={ { padding: "10px 16px 0px" } }>
 			<Grid container wrap="nowrap">
 				<Grid item>
-					<Typography className={ classes.displayText }>
+					<TypographySecondaryDisplay>
 						BIN:
-					</Typography>
+					</TypographySecondaryDisplay>
 
-					<Typography className={ classes.displayText }>
+					<TypographySecondaryDisplay>
 						1SC:
-					</Typography>
+					</TypographySecondaryDisplay>
 
-					<Typography className={ classes.displayText }>
+					<TypographySecondaryDisplay>
 						2SC:
-					</Typography>
+					</TypographySecondaryDisplay>
 
-					<Typography className={ classes.displayText }>
+					<TypographySecondaryDisplay>
 						HEX:
-					</Typography>
+					</TypographySecondaryDisplay>
 
 					<BaseSelectionMenu selectedBase={ customBase } setBase={ setCustomBase } />
 				</Grid>
 
 				<Grid item style={ { overflowX: "scroll" } }>
-					<Typography className={ classes.displayText } ref={ element => { scrollableElements.current[ 0 ] = element; } }>
+					<TypographySecondaryDisplay ref={ element => { scrollableElements.current[ 0 ] = element; } }>
 						{ bin }
-					</Typography>
+					</TypographySecondaryDisplay>
 
-					<Typography className={ classes.displayText } ref={ element => { scrollableElements.current[ 1 ] = element; } }>
+					<TypographySecondaryDisplay ref={ element => { scrollableElements.current[ 1 ] = element; } }>
 						{ onesComplement }
-					</Typography>
+					</TypographySecondaryDisplay>
 
-					<Typography className={ classes.displayText } ref={ element => { scrollableElements.current[ 2 ] = element; } }>
+					<TypographySecondaryDisplay ref={ element => { scrollableElements.current[ 2 ] = element; } }>
 						{ twosComplement }
-					</Typography>
+					</TypographySecondaryDisplay>
 
-					<Typography className={ classes.displayText } ref={ element => { scrollableElements.current[ 3 ] = element; } }>
+					<TypographySecondaryDisplay ref={ element => { scrollableElements.current[ 3 ] = element; } }>
 						{ hex }
-					</Typography>
+					</TypographySecondaryDisplay>
 
-					<Typography className={ classes.displayText } ref={ element => { scrollableElements.current[ 4 ] = element; } }>
+					<TypographySecondaryDisplay ref={ element => { scrollableElements.current[ 4 ] = element; } }>
 						{ customBaseConverted }
-					</Typography>
+					</TypographySecondaryDisplay>
 				</Grid>
 			</Grid>
 		</Paper>
