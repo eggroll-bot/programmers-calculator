@@ -54,7 +54,7 @@
       "Chrome >= 90",
       "ChromeAndroid >= 108",
       "Edge >= 91",
-      "Electron >= 13.0.0",
+      "Electron >= 22.0.0",
       "Firefox >= 78",
       "FirefoxAndroid >= 107",
       "iOS >= 14",
@@ -64,7 +64,7 @@
       "UCAndroid >= 13.4"
     ],
     "development": [
-      "Electron >= 13.0.0"
+      "Electron >= 22.0.0"
     ]
   },
   "build": {
