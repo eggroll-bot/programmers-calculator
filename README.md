@@ -2,6 +2,8 @@
 
 A programmer's calculator with many useful operations to programmers.
 
+Go [here](https://bmak.xyz/portfolio/programmers-calculator) to see a demo.
+
 ## Download
 
 To download binaries for this program, go [here](https://github.com/eggroll-bot/programmers-calculator/releases). Currently, there are installer and portable versions for Windows and Linux. macOS support is untested and requires building from source.
