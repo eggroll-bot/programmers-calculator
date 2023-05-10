@@ -2,8 +2,8 @@
   "name": "programmers-calculator",
   "author": {
     "name": "Brian Mak",
-    "email": "brian@bmak.xyz",
-    "url": "https://bmak.xyz"
+    "email": "brian@bmak.me",
+    "url": "https://bmak.me"
   },
   "main": "public/electron.js",
   "homepage": "./",
